@@ -6,23 +6,234 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".view.AndroidView">
-    <EditText
-            android:layout_width="216dp"
-            android:layout_height="50dp"
-            android:inputType="textPersonName"
-            android:ems="10"
-            android:id="@+id/inputText"
-            app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.184" app:layout_constraintVertical_bias="0.11"
-            android:hint="@string/enter_a_message"/>
-    <Button
-            android:text="@string/send"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/button"
-            app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toEndOf="@+id/inputText"
+    <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.529" app:layout_constraintVertical_bias="0.109"
-            android:onClick="sendMessage"/>
+            app:layout_constraintHorizontal_bias="0.80" app:layout_constraintVertical_bias="0.30"
+            android:text="tomt" android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent" android:id="@+id/markedsfoeringsbidrag"
+            android:textAlignment="viewEnd"/>
+    <EditText
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:inputType="number"
+            android:ems="10"
+            android:id="@+id/renteomkostninger"
+            android:textSize="14sp"
+            android:imeOptions="actionDone"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.55"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.8"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"/>
+    <EditText
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:inputType="number"
+            android:ems="10"
+            android:id="@+id/afskrivninger"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.45"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.8"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"/>
+    <EditText
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:inputType="number"
+            android:ems="10"
+            android:id="@+id/oevrigeKapacitetsomkostninger"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.35"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.8"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"/>
+    <TextView
+            android:text="@string/oms_tning"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/t1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.05" app:layout_constraintVertical_bias="0.10"
+            app:layout_constraintTop_toTopOf="parent"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/t8"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.05" app:layout_constraintVertical_bias="0.45"
+            android:text="@string/afskrivninger"
+            app:layout_constraintTop_toTopOf="parent"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/t10"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.05" app:layout_constraintVertical_bias="0.55"
+            android:text="@string/renteomkostninger"
+            app:layout_constraintTop_toTopOf="parent"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/t5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.05" app:layout_constraintVertical_bias="0.30"
+            android:text="@string/markedsf_ringsbidrag" android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/t7"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.05" app:layout_constraintVertical_bias="0.40"
+            android:text="@string/indtjeningsbidrag" android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/t9"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.05" app:layout_constraintVertical_bias="0.50"
+            android:text="@string/resultat_f_r_renter" android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/textView13"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.05" app:layout_constraintVertical_bias="0.70"
+            android:text="@string/resultat" android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent"/>
+    <TextView
+            android:text="@string/markedsf_ringsomkostninger"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/t4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintVertical_bias="0.25"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintHorizontal_bias="0.05"/>
+    <TextView
+            android:text="@string/vrige_kapacitetsomkostninger"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/t6"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.05" app:layout_constraintVertical_bias="0.35"
+            app:layout_constraintTop_toTopOf="parent" android:textAlignment="viewStart"/>
+    <TextView
+            android:text="@string/vareforbrug"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/t2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintVertical_bias="0.15"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintHorizontal_bias="0.05"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/t3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.05" app:layout_constraintVertical_bias="0.20"
+            android:text="@string/bruttofortjeneste" android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent"/>
+    <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content" android:id="@+id/bruttofortjeneste"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.80" app:layout_constraintVertical_bias="0.20"
+            android:text="tomt" android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent" android:textAlignment="viewEnd"/>
+    <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.80" app:layout_constraintVertical_bias="0.40"
+            android:text="tomt" android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent" android:id="@+id/indtjeningsbidrag"
+            android:textAlignment="viewEnd"/>
+    <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.80" app:layout_constraintVertical_bias="0.50"
+            android:text="tomt" android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent" android:id="@+id/resultatFoerRenter"
+            android:textAlignment="viewEnd"/>
+    <TextView
+            android:text="@string/resultatopg_relse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/titel"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0.02"
+            android:textStyle="bold" android:textSize="18sp" app:layout_constraintHorizontal_bias="0.05"/>
+    <EditText
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:inputType="number"
+            android:ems="10"
+            android:id="@+id/omsaetning"
+            android:textSize="14sp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.10"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.8"/>
+    <EditText
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:inputType="number"
+            android:ems="10"
+            android:id="@+id/vareforbrug"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.15"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.8"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"/>
+    <EditText
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:inputType="number"
+            android:ems="10"
+            android:id="@+id/markedsfoeringsomkostninger"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.25"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.8"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"/>
+    <ImageView
+            android:src="@drawable/blackplus"
+            android:layout_width="20dp"
+            android:layout_height="20dp" android:id="@+id/imageView"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toEndOf="@+id/omsaetning"
+            app:layout_constraintVertical_bias="0.10"/>
+    <ImageView
+            android:src="@drawable/blackplus"
+            android:layout_width="20dp"
+            android:layout_height="20dp" android:id="@+id/imageView2"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toEndOf="@+id/vareforbrug"
+            app:layout_constraintVertical_bias="0.15"/>
+    <ImageView
+            android:src="@drawable/blackplus"
+            android:layout_width="20dp"
+            android:layout_height="20dp" android:id="@+id/imageView3"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toEndOf="@+id/oevrigeKapacitetsomkostninger"
+            app:layout_constraintVertical_bias="0.35"/>
+    <ImageView
+            android:src="@drawable/blackplus"
+            android:layout_width="20dp"
+            android:layout_height="20dp" android:id="@+id/imageView4"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toEndOf="@+id/afskrivninger"
+            app:layout_constraintVertical_bias="0.45"/>
+    <TextView
+            android:text="tomt"
+            android:layout_width="220dp"
+            android:layout_height="wrap_content" android:id="@+id/resultat"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toEndOf="@+id/textView13"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintHorizontal_bias="0.487" app:layout_constraintVertical_bias="0.7"
+            android:textStyle="bold" android:textAlignment="viewEnd"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

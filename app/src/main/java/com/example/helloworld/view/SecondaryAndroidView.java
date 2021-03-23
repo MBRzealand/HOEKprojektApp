@@ -18,7 +18,7 @@ public class SecondaryAndroidView extends AppCompatActivity {
 
         TextView outputView = findViewById(R.id.outputView);
 
-        outputView.setText(model.getData());
+       // outputView.setText(model.getData());
 
     }
 

@@ -1,5 +1,15 @@
 <resources>
-    <string name="app_name">HelloWorld</string>
-    <string name="enter_a_message">Enter a message</string>
-    <string name="send">SEND</string>
+    <string name="app_name">HØK-Calculator</string>
+    <string name="oms_tning">Omsætning</string>
+    <string name="markedsf_ringsbidrag">Markedsføringsbidrag</string>
+    <string name="indtjeningsbidrag">Indtjeningsbidrag</string>
+    <string name="markedsf_ringsomkostninger">Markedsføringsomkostninger</string>
+    <string name="vrige_kapacitetsomkostninger">Øvrige Kapacitetsomkostninger</string>
+    <string name="vareforbrug">Vareforbrug</string>
+    <string name="bruttofortjeneste">Bruttofortjeneste</string>
+    <string name="resultatopg_relse">Resultatopgørelse</string>
+    <string name="resultat">Resultat</string>
+    <string name="resultat_f_r_renter">Resultat før renter</string>
+    <string name="renteomkostninger">Renteomkostninger</string>
+    <string name="afskrivninger">Afskrivninger</string>
 </resources>
