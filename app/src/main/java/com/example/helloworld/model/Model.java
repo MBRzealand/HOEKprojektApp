@@ -16,6 +16,10 @@ public class Model implements Serializable {
     private int renteomkostninger;
     private int resultat;
 
+    public Model() {
+
+    }
+
     public int getOmsaetning() {
         return omsaetning;
     }
@@ -103,7 +107,5 @@ public class Model implements Serializable {
     public void setResultat(int resultat) {
         this.resultat = resultat;
     }
-
-
 
 }

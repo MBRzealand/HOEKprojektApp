@@ -1,7 +1,7 @@
 package com.example.helloworld.view;
 
 import android.content.Context;
-import android.inputmethodservice.Keyboard;
+import android.content.Intent;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
@@ -16,12 +16,14 @@ import com.example.helloworld.model.Model;
 
 public class AndroidView extends AppCompatActivity {
 
-    Model model = new Model();
+    Model model;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        model = new Model();
 
         final EditText omsaetning = findViewById(R.id.omsaetning);
         final EditText vareforbrug = findViewById(R.id.vareforbrug);
@@ -180,21 +182,31 @@ public class AndroidView extends AppCompatActivity {
 
     }
 
+    public void goToUdregnOmsaetning(View view) {
+
+        Intent intent = new Intent(this, UdregnOmsaetning.class);
+
+        intent.putExtra("modelObject", model);
+
+        startActivity(intent);
+    }
+
 //    public void sendMessage(View view) {
 //
 //        Intent intent = new Intent(this, SecondaryAndroidView.class);
 //
-//        // EditText inputText = findViewById(R.id.inputText);
+//         EditText inputText = findViewById(R.id.inputText);
 //
-//        // String textInput = inputText.getText().toString();
+//         String textInput = inputText.getText().toString();
 //
-//        // model.setData(textInput);
+//         model.setData(textInput);
 //
 //        intent.putExtra("modelObject", model);
 //
 //        startActivity(intent);
 //
 //    }
+
 
 
 
