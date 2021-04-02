@@ -1,6 +1,8 @@
 package com.example.helloworld.view;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
@@ -163,6 +165,16 @@ public class UdregnOmsaetning extends AppCompatActivity {
 
     public void tilbageFraUdregnOmsaetning(View view) {
 
+        if(listeAfOmsaetning.size() >0 ){
+
+            Intent intent = new Intent(this, AndroidView.class);
+
+            intent.putExtra("modelObject", model);
+
+            setResult(Activity.RESULT_OK,intent);
+
+        }
+
         finish();
 
     }
@@ -204,6 +216,7 @@ public class UdregnOmsaetning extends AppCompatActivity {
 
         table.setDataAdapter(new SimpleTableDataAdapter(this,  listeAfOmsaetningMedEnheder));
         udregnOmsaetningResultat.setText(Integer.toString(totalOmsaetning) + " kr");
+        model.setOmsaetning(totalOmsaetning);
 
         omsaetningNavnInput.setText("");
         salgsprisInput.setText("");

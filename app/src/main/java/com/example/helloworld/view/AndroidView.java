@@ -1,5 +1,6 @@
 package com.example.helloworld.view;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.view.KeyEvent;
@@ -8,6 +9,7 @@ import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.TextView;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.example.helloworld.R;
@@ -19,6 +21,8 @@ public class AndroidView extends AppCompatActivity {
     Model model;
     InputMethodManager imm;
 
+    EditText omsaetning;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,7 +32,7 @@ public class AndroidView extends AppCompatActivity {
 
         imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
 
-        final EditText omsaetning = findViewById(R.id.omsaetning);
+        omsaetning = findViewById(R.id.omsaetning);
         final EditText vareforbrug = findViewById(R.id.vareforbrug);
         final TextView bruttofortjeneste = findViewById(R.id.bruttofortjeneste);
         final EditText markedsfoeringsomkostninger = findViewById(R.id.markedsfoeringsomkostninger);
@@ -45,6 +49,7 @@ public class AndroidView extends AppCompatActivity {
         omsaetning.setOnFocusChangeListener(new View.OnFocusChangeListener() {
 
             public void onFocusChange(View view, boolean hasFocus) {
+
                 if(!hasFocus) {
                     if ( omsaetning.getText().toString().equals("")) {
                         omsaetning.setText(Integer.toString(0));
@@ -58,6 +63,8 @@ public class AndroidView extends AppCompatActivity {
                     bruttofortjeneste.setText(Integer.toString( (Integer.parseInt(omsaetning.getText().toString())) - (Integer.parseInt(vareforbrug.getText().toString())) ) );
                     model.setBruttofortjeneste(Integer.parseInt(bruttofortjeneste.getText().toString()));
                 }
+
+
 
             }
         });
@@ -191,10 +198,25 @@ public class AndroidView extends AppCompatActivity {
 
         intent.putExtra("modelObject", model);
 
-        startActivity(intent);
+        startActivityForResult(intent,666);
+
     }
 
-//    public void sendMessage(View view) {
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        switch (requestCode){
+            case 666:
+                if (resultCode == Activity.RESULT_OK){
+
+                    Model returnmodel = (Model) data.getSerializableExtra("modelObject");
+
+                    omsaetning.setText(Integer.toString(returnmodel.getOmsaetning()));
+
+                }
+        }
+    }
+
+    //    public void sendMessage(View view) {
 //
 //        Intent intent = new Intent(this, SecondaryAndroidView.class);
 //
