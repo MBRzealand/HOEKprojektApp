@@ -1,12 +1,13 @@
 package com.example.helloworld.view;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
@@ -30,6 +31,14 @@ public class UdregnOmsaetning extends AppCompatActivity {
     EditText afsaetningInput;
     EditText salgsprisInput;
     TextView udregnOmsaetningResultat;
+    TextView omsaetningText;
+    TextView omsaetningResultatText;
+
+    ImageView omsaetningImage;
+
+    Button tilfoejTilOmsaetningKnap;
+
+
 
 
     List<String[]> listeAfOmsaetning;
@@ -43,15 +52,28 @@ public class UdregnOmsaetning extends AppCompatActivity {
         model = (Model) getIntent().getSerializableExtra("modelObject");
 
         table = findViewById(R.id.tableView);
-
         table.setHeaderAdapter(new SimpleTableHeaderAdapter(this,"Afsætning", "Salgspris", "Omsætning"));
 
 
         afsaetningInput = findViewById(R.id.afsaetningInput);
         salgsprisInput = findViewById(R.id.salgsprisInput);
-
-
         udregnOmsaetningResultat = findViewById(R.id.udregnOmsaetningResultat);
+
+        tilfoejTilOmsaetningKnap = findViewById(R.id.tilfoejTilOmsaetningKnap);
+        omsaetningText = findViewById(R.id.omsaetningText);
+        omsaetningResultatText = findViewById(R.id.omsaetningResultatText);
+        omsaetningImage = findViewById(R.id.omsaetningImage);
+
+
+        afsaetningInput.setVisibility(View.GONE);
+        salgsprisInput.setVisibility(View.GONE);
+        tilfoejTilOmsaetningKnap.setVisibility(View.GONE);
+        afsaetningInput.setEnabled(false);
+        salgsprisInput.setEnabled(false);
+        tilfoejTilOmsaetningKnap.setEnabled(false);
+
+        omsaetningResultatText.setVisibility(View.GONE);
+        udregnOmsaetningResultat.setVisibility(View.GONE);
 
 
         listeAfOmsaetning = new ArrayList<String[]>();
@@ -153,13 +175,46 @@ public class UdregnOmsaetning extends AppCompatActivity {
 
         }
 
+        if(listeAfOmsaetning.size() > 0){
+            udregnOmsaetningResultat.setVisibility(View.VISIBLE);
+            omsaetningResultatText.setVisibility(View.VISIBLE);
+        }
+
         table.setDataAdapter(new SimpleTableDataAdapter(this,  listeAfOmsaetningMedEnheder));
         udregnOmsaetningResultat.setText(Integer.toString(totalOmsaetning) + " kr");
 
         salgsprisInput.setText("");
         afsaetningInput.setText("");
 
+        afsaetningInput.setVisibility(View.GONE);
+        salgsprisInput.setVisibility(View.GONE);
+        tilfoejTilOmsaetningKnap.setVisibility(View.GONE);
+        afsaetningInput.setEnabled(false);
+        salgsprisInput.setEnabled(false);
+        tilfoejTilOmsaetningKnap.setEnabled(false);
+
+        omsaetningImage.setVisibility(View.VISIBLE);
+        omsaetningText.setVisibility(View.VISIBLE);
+        omsaetningImage.setEnabled(true);
+        omsaetningText.setEnabled(true);
+
+
     }
 
 
+    public void tilfoejVareTilOmsaetning(View view) {
+
+        afsaetningInput.setVisibility(View.VISIBLE);
+        salgsprisInput.setVisibility(View.VISIBLE);
+        tilfoejTilOmsaetningKnap.setVisibility(View.VISIBLE);
+        afsaetningInput.setEnabled(true);
+        salgsprisInput.setEnabled(true);
+        tilfoejTilOmsaetningKnap.setEnabled(true);
+
+        omsaetningImage.setVisibility(View.GONE);
+        omsaetningText.setVisibility(View.GONE);
+        omsaetningImage.setEnabled(false);
+        omsaetningText.setEnabled(false);
+
+    }
 }

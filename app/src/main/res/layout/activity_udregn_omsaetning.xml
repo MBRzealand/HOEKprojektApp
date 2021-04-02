@@ -34,6 +34,7 @@
             app:layout_constraintHorizontal_bias="0.044" app:layout_constraintVertical_bias="0.02"
             android:onClick="tilbageFraUdregnOmsaetning"/>
     <EditText
+            android:imeOptions="actionNext"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:inputType="number"
@@ -41,9 +42,10 @@
             android:id="@+id/afsaetningInput"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.051" app:layout_constraintVertical_bias="0.526"
-            android:textSize="14sp"/>
+            app:layout_constraintHorizontal_bias="0.08" app:layout_constraintVertical_bias="0.46"
+            android:textSize="14sp" android:hint="afsætning"/>
     <EditText
+            android:imeOptions="actionDone"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:inputType="number"
@@ -51,46 +53,47 @@
             android:id="@+id/salgsprisInput"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.443" app:layout_constraintVertical_bias="0.526"
-            android:textSize="14sp"/>
+            app:layout_constraintHorizontal_bias="0.443" app:layout_constraintVertical_bias="0.46"
+            android:textSize="14sp" android:hint="salgspris"/>
     <TextView
             android:text="Tilføj ny vare til omsætningen"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/textView"
+            android:layout_height="wrap_content" android:id="@+id/omsaetningText"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintHorizontal_bias="0.227" app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.457"
+            app:layout_constraintHorizontal_bias="0.26" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.46"
             android:textColor="#000000"/>
     <ImageView
             android:layout_width="20dp"
-            android:layout_height="20dp" app:srcCompat="@drawable/blackplus" android:id="@+id/imageView5"
+            android:layout_height="20dp" app:srcCompat="@drawable/blackplus" android:id="@+id/omsaetningImage"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.04"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.07"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintVertical_bias="0.458"/>
+            app:layout_constraintVertical_bias="0.462" android:clickable="true"
+            android:onClick="tilfoejVareTilOmsaetning"/>
     <TextView
             android:text="Omsætning samlet"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/textView2"
+            android:layout_height="wrap_content" android:id="@+id/omsaetningResultatText"
             android:textColor="#000000" android:textStyle="bold" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintHorizontal_bias="0.055" app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintVertical_bias="0.65"/>
+            app:layout_constraintHorizontal_bias="0.09" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0.52"/>
 
     <Button
             android:text="add"
             android:layout_width="63dp"
-            android:layout_height="38dp" android:id="@+id/addToTableButton"
+            android:layout_height="38dp" android:id="@+id/tilfoejTilOmsaetningKnap"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.954" app:layout_constraintVertical_bias="0.525"
+            app:layout_constraintHorizontal_bias="0.954" app:layout_constraintVertical_bias="0.46"
             android:onClick="addElementToTable"/>
     <TextView
             android:layout_width="200dp"
             android:layout_height="wrap_content" android:id="@+id/udregnOmsaetningResultat"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.952" app:layout_constraintVertical_bias="0.65"
+            app:layout_constraintHorizontal_bias="0.952" app:layout_constraintVertical_bias="0.52"
             android:textStyle="bold" android:textColor="#000000" android:textAlignment="viewEnd"/>
 
 
