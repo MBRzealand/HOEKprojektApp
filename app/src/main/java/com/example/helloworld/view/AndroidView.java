@@ -17,6 +17,7 @@ import com.example.helloworld.model.Model;
 public class AndroidView extends AppCompatActivity {
 
     Model model;
+    InputMethodManager imm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +25,8 @@ public class AndroidView extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         model = new Model();
+
+        imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
 
         final EditText omsaetning = findViewById(R.id.omsaetning);
         final EditText vareforbrug = findViewById(R.id.vareforbrug);
@@ -165,7 +168,7 @@ public class AndroidView extends AppCompatActivity {
                     public boolean onEditorAction(TextView view, int actionId, KeyEvent event) {
                         if (actionId == EditorInfo.IME_ACTION_DONE) {
                             renteomkostninger.clearFocus();
-                            InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+
                             imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
                             return true;
                         }
