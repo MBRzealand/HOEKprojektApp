@@ -6,6 +6,42 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".view.AndroidView">
+    <ImageButton
+            android:layout_width="25dp"
+            android:layout_height="25dp" app:srcCompat="@drawable/add_medium_grey"
+            android:id="@+id/imageView3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintHorizontal_bias="0.958"
+            app:layout_constraintVertical_bias="0.354" android:background="@drawable/round_button"
+            android:scaleType="fitXY"/>
+    <ImageButton
+            android:layout_width="25dp"
+            android:layout_height="25dp" app:srcCompat="@drawable/add_medium_grey"
+            android:id="@+id/imageView4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintHorizontal_bias="0.958"
+            android:background="@drawable/round_button"
+            android:scaleType="fitXY" app:layout_constraintVertical_bias="0.446"/>
+    <ImageButton
+            android:layout_width="25dp"
+            android:layout_height="25dp" app:srcCompat="@drawable/add_medium_grey"
+            android:id="@+id/imageView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintHorizontal_bias="0.958"
+            app:layout_constraintVertical_bias="0.1" android:background="@drawable/round_button"
+            android:scaleType="fitXY" android:onClick="goToUdregnOmsaetning"/>
+    <ImageButton
+            android:layout_width="25dp"
+            android:layout_height="25dp" app:srcCompat="@drawable/add_medium_grey"
+            android:id="@+id/imageView2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintHorizontal_bias="0.958"
+            app:layout_constraintVertical_bias="0.151" android:background="@drawable/round_button"
+            android:scaleType="fitXY"/>
     <TextView
             android:layout_width="100dp"
             android:layout_height="wrap_content"
@@ -207,34 +243,6 @@
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.8"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"
             android:textAlignment="viewEnd"/>
-    <ImageView
-            android:src="@drawable/blackplus"
-            android:layout_width="20dp"
-            android:layout_height="20dp" android:id="@+id/imageView"
-            app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toEndOf="@+id/omsaetning"
-            app:layout_constraintVertical_bias="0.10" android:onClick="goToUdregnOmsaetning"/>
-    <ImageView
-            android:src="@drawable/blackplus"
-            android:layout_width="20dp"
-            android:layout_height="20dp" android:id="@+id/imageView2"
-            app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toEndOf="@+id/vareforbrug"
-            app:layout_constraintVertical_bias="0.15"/>
-    <ImageView
-            android:src="@drawable/blackplus"
-            android:layout_width="20dp"
-            android:layout_height="20dp" android:id="@+id/imageView3"
-            app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toEndOf="@+id/oevrigeKapacitetsomkostninger"
-            app:layout_constraintVertical_bias="0.35"/>
-    <ImageView
-            android:src="@drawable/blackplus"
-            android:layout_width="20dp"
-            android:layout_height="20dp" android:id="@+id/imageView4"
-            app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toEndOf="@+id/afskrivninger"
-            app:layout_constraintVertical_bias="0.45"/>
     <TextView
             android:text="tomt"
             android:layout_width="220dp"

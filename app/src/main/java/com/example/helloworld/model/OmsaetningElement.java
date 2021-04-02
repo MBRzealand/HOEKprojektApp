@@ -2,9 +2,18 @@ package com.example.helloworld.model;
 
 public class OmsaetningElement {
 
+    private String varenavn = "";
     private String afsaetning = "";
     private String salgspris = "";
     private String Omsaetning = "";
+
+    public String getVarenavn() {
+        return varenavn;
+    }
+
+    public void setVarenavn(String varenavn) {
+        this.varenavn = varenavn;
+    }
 
     public String getAfsaetning() {
         return afsaetning;

@@ -5,10 +5,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.TextView;
+import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.example.helloworld.R;
@@ -30,13 +27,14 @@ public class UdregnOmsaetning extends AppCompatActivity {
 
     EditText afsaetningInput;
     EditText salgsprisInput;
+    EditText omsaetningNavnInput;
     TextView udregnOmsaetningResultat;
     TextView omsaetningText;
     TextView omsaetningResultatText;
 
-    ImageView omsaetningImage;
+    ImageButton omsaetningImage;
 
-    Button tilfoejTilOmsaetningKnap;
+    ImageButton tilfoejTilOmsaetningKnap;
 
 
 
@@ -52,9 +50,10 @@ public class UdregnOmsaetning extends AppCompatActivity {
         model = (Model) getIntent().getSerializableExtra("modelObject");
 
         table = findViewById(R.id.tableView);
-        table.setHeaderAdapter(new SimpleTableHeaderAdapter(this,"Afsætning", "Salgspris", "Omsætning"));
+        table.setHeaderAdapter(new SimpleTableHeaderAdapter(this,"Varenavn","Afsætning", "Salgspris", "Total"));
 
 
+        omsaetningNavnInput = findViewById(R.id.omsaetningNavnInput);
         afsaetningInput = findViewById(R.id.afsaetningInput);
         salgsprisInput = findViewById(R.id.salgsprisInput);
         udregnOmsaetningResultat = findViewById(R.id.udregnOmsaetningResultat);
@@ -65,9 +64,11 @@ public class UdregnOmsaetning extends AppCompatActivity {
         omsaetningImage = findViewById(R.id.omsaetningImage);
 
 
+        omsaetningNavnInput.setVisibility(View.GONE);
         afsaetningInput.setVisibility(View.GONE);
         salgsprisInput.setVisibility(View.GONE);
         tilfoejTilOmsaetningKnap.setVisibility(View.GONE);
+        omsaetningNavnInput.setEnabled(false);
         afsaetningInput.setEnabled(false);
         salgsprisInput.setEnabled(false);
         tilfoejTilOmsaetningKnap.setEnabled(false);
@@ -79,6 +80,25 @@ public class UdregnOmsaetning extends AppCompatActivity {
         listeAfOmsaetning = new ArrayList<String[]>();
         listeAfOmsaetningMedEnheder = new ArrayList<String[]>();
 
+
+        omsaetningNavnInput.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+
+            public void onFocusChange(View view, boolean hasFocus) {
+                if(!hasFocus) {
+                    if ( omsaetningNavnInput.getText().toString().equals("")) {
+                        omsaetningNavnInput.setText("Intet Navn");
+                        omsaetningElement.setVarenavn("Intet Navn");
+                    } else {
+                        omsaetningElement.setVarenavn(omsaetningNavnInput.getText().toString());
+                    }
+                }
+
+                if( (!(afsaetningInput.getText().toString().equals("")) && !(salgsprisInput.getText().toString().equals(""))) && !(omsaetningNavnInput.getText().toString().equals("")) ){
+                    omsaetningElement.setOmsaetning( Integer.toString( ( Integer.parseInt(afsaetningInput.getText().toString()) * ( Integer.parseInt(salgsprisInput.getText().toString() )) )) );
+                }
+
+            }
+        });
 
 
         afsaetningInput.setOnFocusChangeListener(new View.OnFocusChangeListener() {
@@ -93,7 +113,7 @@ public class UdregnOmsaetning extends AppCompatActivity {
                     }
                 }
 
-                if( !(afsaetningInput.getText().toString().equals("")) && !(salgsprisInput.getText().toString().equals("")) ){
+                if( (!(afsaetningInput.getText().toString().equals("")) && !(salgsprisInput.getText().toString().equals(""))) && !(omsaetningNavnInput.getText().toString().equals("")) ){
                     omsaetningElement.setOmsaetning( Integer.toString( ( Integer.parseInt(afsaetningInput.getText().toString()) * ( Integer.parseInt(salgsprisInput.getText().toString() )) )) );
                 }
 
@@ -112,7 +132,7 @@ public class UdregnOmsaetning extends AppCompatActivity {
                     }
                 }
 
-                if( !(afsaetningInput.getText().toString().equals("")) && !(salgsprisInput.getText().toString().equals("")) ){
+                if( (!(afsaetningInput.getText().toString().equals("")) && !(salgsprisInput.getText().toString().equals(""))) && !(omsaetningNavnInput.getText().toString().equals("")) ){
                     omsaetningElement.setOmsaetning( Integer.toString (( Integer.parseInt(afsaetningInput.getText().toString())  * ( Integer.parseInt(salgsprisInput.getText().toString() )) ) ));
 
                 }
@@ -150,6 +170,7 @@ public class UdregnOmsaetning extends AppCompatActivity {
     public void addElementToTable(View view) {
 
         String [] stringOmsaetningsElement = new String[]{
+                omsaetningElement.getVarenavn(),
                 omsaetningElement.getAfsaetning(),
                 omsaetningElement.getSalgspris(),
                 omsaetningElement.getOmsaetning()
@@ -160,6 +181,7 @@ public class UdregnOmsaetning extends AppCompatActivity {
 
 
         String [] stringOmsaetningsElementMedEnheder = new String[]{
+                omsaetningElement.getVarenavn(),
                 omsaetningElement.getAfsaetning() + " stk",
                 omsaetningElement.getSalgspris() + " kr",
                 omsaetningElement.getOmsaetning() + " kr"
@@ -171,7 +193,7 @@ public class UdregnOmsaetning extends AppCompatActivity {
         int totalOmsaetning = 0;
 
         for (int i = 0; i < listeAfOmsaetning.size(); i++) {
-            totalOmsaetning += Integer.parseInt(listeAfOmsaetning.get(i)[2]);
+            totalOmsaetning += Integer.parseInt(listeAfOmsaetning.get(i)[3]);
 
         }
 
@@ -183,12 +205,15 @@ public class UdregnOmsaetning extends AppCompatActivity {
         table.setDataAdapter(new SimpleTableDataAdapter(this,  listeAfOmsaetningMedEnheder));
         udregnOmsaetningResultat.setText(Integer.toString(totalOmsaetning) + " kr");
 
+        omsaetningNavnInput.setText("");
         salgsprisInput.setText("");
         afsaetningInput.setText("");
 
+        omsaetningNavnInput.setVisibility(View.GONE);
         afsaetningInput.setVisibility(View.GONE);
         salgsprisInput.setVisibility(View.GONE);
         tilfoejTilOmsaetningKnap.setVisibility(View.GONE);
+        omsaetningNavnInput.setEnabled(false);
         afsaetningInput.setEnabled(false);
         salgsprisInput.setEnabled(false);
         tilfoejTilOmsaetningKnap.setEnabled(false);
@@ -204,9 +229,11 @@ public class UdregnOmsaetning extends AppCompatActivity {
 
     public void tilfoejVareTilOmsaetning(View view) {
 
+        omsaetningNavnInput.setVisibility(View.VISIBLE);
         afsaetningInput.setVisibility(View.VISIBLE);
         salgsprisInput.setVisibility(View.VISIBLE);
         tilfoejTilOmsaetningKnap.setVisibility(View.VISIBLE);
+        omsaetningNavnInput.setEnabled(true);
         afsaetningInput.setEnabled(true);
         salgsprisInput.setEnabled(true);
         tilfoejTilOmsaetningKnap.setEnabled(true);
