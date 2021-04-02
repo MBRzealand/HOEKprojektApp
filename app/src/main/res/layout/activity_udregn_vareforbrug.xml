@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.UdregnVareforbrug">
+
+
+    <ImageButton
+            android:layout_width="25dp"
+            android:layout_height="25dp" app:srcCompat="@drawable/add_medium_grey"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintHorizontal_bias="0.07"
+            app:layout_constraintVertical_bias="0.46" android:background="@drawable/round_button"
+            android:scaleType="fitXY" android:onClick="tilfoejVareTilVareforbrug" android:id="@+id/vareforbrugImage"/>
+    <de.codecrafters.tableview.TableView
+            android:layout_width="425dp"
+            android:layout_height="272dp"
+            app:tableView_columnCount="4" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintHorizontal_bias="0.571"
+            app:layout_constraintVertical_bias="0.112" android:id="@+id/tableView2"/>
+    <TextView
+            android:text="Udregn Vareforbrug"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/titel2"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0.02"
+            android:textStyle="bold" android:textSize="18sp"
+            android:textColor="#000000"/>
+    <ImageView
+            android:layout_width="60dp"
+            android:layout_height="25dp" app:srcCompat="@drawable/backarrow" android:id="@+id/imageView6"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.044" app:layout_constraintVertical_bias="0.02"
+            android:onClick="tilbageFraUdregnVareforbrug"/>
+    <EditText
+            android:nextFocusDown="@+id/opkoebInput"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:ems="10"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.08" app:layout_constraintVertical_bias="0.46"
+            android:textSize="14sp" android:hint="varenavn" android:maxLines="1"
+            android:id="@+id/vareforbrugNavnInput"/>
+
+    <EditText
+            android:imeOptions="actionNext"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:ems="10"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.44" app:layout_constraintVertical_bias="0.46"
+            android:textSize="14sp" android:hint="opkøb" android:id="@+id/opkoebInput"/>
+    <EditText
+            android:imeOptions="actionDone"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:ems="10"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.80" app:layout_constraintVertical_bias="0.46"
+            android:textSize="14sp" android:hint="købspris" android:id="@+id/koebsprisInput"/>
+    <TextView
+            android:text="Tilføj ny vare til vareforbruget"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.26" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.46"
+            android:textColor="#000000" android:id="@+id/vareforbrugText"/>
+    <TextView
+            android:text="Samlet Vareforbrug:"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000000" android:textStyle="bold" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintHorizontal_bias="0.09" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0.52" android:id="@+id/vareforbrugResultatText"/>
+
+    <TextView
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.872" app:layout_constraintVertical_bias="0.519"
+            android:textStyle="bold" android:textColor="#000000" android:textAlignment="viewEnd"
+            android:id="@+id/udregnVareforbrugResultat"/>
+    <ImageButton
+            android:layout_width="25dp"
+            android:layout_height="25dp" app:srcCompat="@drawable/add_medium_grey"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintHorizontal_bias="0.93"
+            app:layout_constraintVertical_bias="0.46" android:background="@drawable/round_button"
+            android:scaleType="fitXY" android:onClick="addElementToTable" android:id="@+id/tilfoejTilVareforbrugKnap"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

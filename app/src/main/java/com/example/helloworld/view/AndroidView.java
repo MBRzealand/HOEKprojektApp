@@ -22,6 +22,8 @@ public class AndroidView extends AppCompatActivity {
     InputMethodManager imm;
 
     EditText omsaetning;
+    EditText vareforbrug;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +35,7 @@ public class AndroidView extends AppCompatActivity {
         imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
 
         omsaetning = findViewById(R.id.omsaetning);
-        final EditText vareforbrug = findViewById(R.id.vareforbrug);
+        vareforbrug = findViewById(R.id.vareforbrug);
         final TextView bruttofortjeneste = findViewById(R.id.bruttofortjeneste);
         final EditText markedsfoeringsomkostninger = findViewById(R.id.markedsfoeringsomkostninger);
         final TextView markedsfoeringsbidrag = findViewById(R.id.markedsfoeringsbidrag);
@@ -202,36 +204,45 @@ public class AndroidView extends AppCompatActivity {
 
     }
 
+    public void goToUdregnVareforbrug(View view) {
+
+        Intent intent = new Intent(this, UdregnVareforbrug.class);
+
+        intent.putExtra("modelObject", model);
+
+        startActivityForResult(intent,420);
+
+    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
         switch (requestCode){
             case 666:
                 if (resultCode == Activity.RESULT_OK){
 
                     Model returnmodel = (Model) data.getSerializableExtra("modelObject");
 
+                    model = returnmodel;
+
                     omsaetning.setText(Integer.toString(returnmodel.getOmsaetning()));
 
                 }
+                break;
+
+            case 420:
+                if (resultCode == Activity.RESULT_OK){
+
+                    Model returnmodel = (Model) data.getSerializableExtra("modelObject");
+
+                    model = returnmodel;
+
+                    vareforbrug.setText(Integer.toString(returnmodel.getVareforbrug()));
+
+                }
+                break;
         }
     }
-
-    //    public void sendMessage(View view) {
-//
-//        Intent intent = new Intent(this, SecondaryAndroidView.class);
-//
-//         EditText inputText = findViewById(R.id.inputText);
-//
-//         String textInput = inputText.getText().toString();
-//
-//         model.setData(textInput);
-//
-//        intent.putExtra("modelObject", model);
-//
-//        startActivity(intent);
-//
-//    }
-
 
 
 

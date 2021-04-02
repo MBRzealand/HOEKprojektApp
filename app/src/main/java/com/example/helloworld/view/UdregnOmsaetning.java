@@ -27,9 +27,9 @@ public class UdregnOmsaetning extends AppCompatActivity {
 
     TableView<String[]> table;
 
+    EditText omsaetningNavnInput;
     EditText afsaetningInput;
     EditText salgsprisInput;
-    EditText omsaetningNavnInput;
     TextView udregnOmsaetningResultat;
     TextView omsaetningText;
     TextView omsaetningResultatText;
