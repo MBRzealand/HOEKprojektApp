@@ -23,6 +23,7 @@ public class AndroidView extends AppCompatActivity {
 
     EditText omsaetning;
     EditText vareforbrug;
+    EditText oevrigeKapacitetsomkostninger;
 
 
     @Override
@@ -39,7 +40,7 @@ public class AndroidView extends AppCompatActivity {
         final TextView bruttofortjeneste = findViewById(R.id.bruttofortjeneste);
         final EditText markedsfoeringsomkostninger = findViewById(R.id.markedsfoeringsomkostninger);
         final TextView markedsfoeringsbidrag = findViewById(R.id.markedsfoeringsbidrag);
-        final EditText oevrigeKapacitetsomkostninger = findViewById(R.id.oevrigeKapacitetsomkostninger);
+        oevrigeKapacitetsomkostninger = findViewById(R.id.oevrigeKapacitetsomkostninger);
         final TextView indtjeningsbidrag = findViewById(R.id.indtjeningsbidrag);
         final EditText afskrivninger = findViewById(R.id.afskrivninger);
         final TextView resultatFoerRenter = findViewById(R.id.resultatFoerRenter);
@@ -214,6 +215,16 @@ public class AndroidView extends AppCompatActivity {
 
     }
 
+    public void goToUdregnKapacitetsomkostninger(View view) {
+
+        Intent intent = new Intent(this, UdregnKapacitetsomkostninger.class);
+
+        intent.putExtra("modelObject", model);
+
+        startActivityForResult(intent,69);
+
+    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -238,6 +249,18 @@ public class AndroidView extends AppCompatActivity {
                     model = returnmodel;
 
                     vareforbrug.setText(Integer.toString(returnmodel.getVareforbrug()));
+
+                }
+                break;
+
+            case 69:
+                if (resultCode == Activity.RESULT_OK){
+
+                    Model returnmodel = (Model) data.getSerializableExtra("modelObject");
+
+                    model = returnmodel;
+
+                    oevrigeKapacitetsomkostninger.setText(Integer.toString(returnmodel.getOevrigeKapacitetsomkostninger()));
 
                 }
                 break;
