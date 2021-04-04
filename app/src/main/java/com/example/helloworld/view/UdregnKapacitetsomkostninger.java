@@ -52,7 +52,7 @@ public class UdregnKapacitetsomkostninger extends AppCompatActivity {
         model = (Model) getIntent().getSerializableExtra("modelObject");
 
         table3 = findViewById(R.id.tableView3);
-        table3.setHeaderAdapter(new SimpleTableHeaderAdapter(this,"Kapacitetsomkostning","Pris"));
+        table3.setHeaderAdapter(new SimpleTableHeaderAdapter(this,"Kapacitetsomkostning","Omkostningspris"));
 
 
         kapacitetsomkostningNavnInput = findViewById(R.id.kapacitetsomkostningNavnInput);
