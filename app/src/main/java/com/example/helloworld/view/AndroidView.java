@@ -24,6 +24,14 @@ public class AndroidView extends AppCompatActivity {
     EditText omsaetning;
     EditText vareforbrug;
     EditText oevrigeKapacitetsomkostninger;
+    TextView bruttofortjeneste;
+    EditText markedsfoeringsomkostninger;
+    TextView markedsfoeringsbidrag;
+    TextView indtjeningsbidrag;
+    EditText afskrivninger;
+    TextView resultatFoerRenter;
+    EditText renteomkostninger;
+    TextView resultat;
 
 
     @Override
@@ -37,21 +45,27 @@ public class AndroidView extends AppCompatActivity {
 
         omsaetning = findViewById(R.id.omsaetning);
         vareforbrug = findViewById(R.id.vareforbrug);
-        final TextView bruttofortjeneste = findViewById(R.id.bruttofortjeneste);
-        final EditText markedsfoeringsomkostninger = findViewById(R.id.markedsfoeringsomkostninger);
-        final TextView markedsfoeringsbidrag = findViewById(R.id.markedsfoeringsbidrag);
+        bruttofortjeneste = findViewById(R.id.bruttofortjeneste);
+        markedsfoeringsomkostninger = findViewById(R.id.markedsfoeringsomkostninger);
+        markedsfoeringsbidrag = findViewById(R.id.markedsfoeringsbidrag);
         oevrigeKapacitetsomkostninger = findViewById(R.id.oevrigeKapacitetsomkostninger);
-        final TextView indtjeningsbidrag = findViewById(R.id.indtjeningsbidrag);
-        final EditText afskrivninger = findViewById(R.id.afskrivninger);
-        final TextView resultatFoerRenter = findViewById(R.id.resultatFoerRenter);
-        final EditText renteomkostninger = findViewById(R.id.renteomkostninger);
-        final TextView resultat = findViewById(R.id.resultat);
+        indtjeningsbidrag = findViewById(R.id.indtjeningsbidrag);
+        afskrivninger = findViewById(R.id.afskrivninger);
+        resultatFoerRenter = findViewById(R.id.resultatFoerRenter);
+        renteomkostninger = findViewById(R.id.renteomkostninger);
+        resultat = findViewById(R.id.resultat);
 
 
 
         omsaetning.setOnFocusChangeListener(new View.OnFocusChangeListener() {
 
             public void onFocusChange(View view, boolean hasFocus) {
+
+                if (hasFocus){
+
+                    opdaterTal();
+
+                }
 
                 if(!hasFocus) {
                     if ( omsaetning.getText().toString().equals("")) {
@@ -60,11 +74,9 @@ public class AndroidView extends AppCompatActivity {
                     } else {
                         model.setOmsaetning(Integer.parseInt(omsaetning.getText().toString()));
                     }
-                }
 
-                if( !(omsaetning.getText().toString().equals("")) && !(vareforbrug.getText().toString().equals(""))){
-                    bruttofortjeneste.setText(Integer.toString( (Integer.parseInt(omsaetning.getText().toString())) - (Integer.parseInt(vareforbrug.getText().toString())) ) );
-                    model.setBruttofortjeneste(Integer.parseInt(bruttofortjeneste.getText().toString()));
+
+
                 }
 
 
@@ -75,6 +87,13 @@ public class AndroidView extends AppCompatActivity {
         vareforbrug.setOnFocusChangeListener(new View.OnFocusChangeListener() {
 
             public void onFocusChange(View view, boolean hasFocus) {
+
+                if(hasFocus) {
+
+                    opdaterTal();
+
+                }
+
                 if(!hasFocus) {
                     if ( vareforbrug.getText().toString().equals("")) {
                         vareforbrug.setText(Integer.toString(0));
@@ -83,19 +102,26 @@ public class AndroidView extends AppCompatActivity {
                     } else {
                         model.setVareforbrug(Integer.parseInt(vareforbrug.getText().toString()));
                     }
+
+
+
                 }
 
-                if( !(omsaetning.getText().toString().equals("")) && !(vareforbrug.getText().toString().equals(""))){
-                    bruttofortjeneste.setText(Integer.toString((Integer.parseInt(omsaetning.getText().toString())) - (Integer.parseInt(vareforbrug.getText().toString())) ) );
-                    model.setBruttofortjeneste(Integer.parseInt(bruttofortjeneste.getText().toString()));
-                }
             }
         });
+
 
 
         markedsfoeringsomkostninger.setOnFocusChangeListener(new View.OnFocusChangeListener() {
 
             public void onFocusChange(View view, boolean hasFocus) {
+
+                if(hasFocus) {
+
+                    opdaterTal();
+
+                }
+
                 if(!hasFocus) {
                     if ( markedsfoeringsomkostninger.getText().toString().equals("")) {
                         markedsfoeringsomkostninger.setText(Integer.toString(0));
@@ -103,11 +129,12 @@ public class AndroidView extends AppCompatActivity {
                     } else {
                         model.setMarkedsfoeringsomkostninger(Integer.parseInt(markedsfoeringsomkostninger.getText().toString()));
                     }
+
+
+
                 }
 
-                if( !(bruttofortjeneste.getText().toString().equals("tomt")) && !(markedsfoeringsomkostninger.getText().toString().equals("")) ){
-                    markedsfoeringsbidrag.setText( Integer.toString( ( Integer.parseInt(bruttofortjeneste.getText().toString()) ) - ( Integer.parseInt(markedsfoeringsomkostninger.getText().toString() )) ) );
-                }
+
             }
         });
 
@@ -116,6 +143,13 @@ public class AndroidView extends AppCompatActivity {
         oevrigeKapacitetsomkostninger.setOnFocusChangeListener(new View.OnFocusChangeListener() {
 
             public void onFocusChange(View view, boolean hasFocus) {
+
+                if(hasFocus) {
+
+                    opdaterTal();
+
+                }
+
                 if(!hasFocus) {
                     if ( oevrigeKapacitetsomkostninger.getText().toString().equals("")) {
                         oevrigeKapacitetsomkostninger.setText(Integer.toString(0));
@@ -123,11 +157,11 @@ public class AndroidView extends AppCompatActivity {
                     } else {
                         model.setOevrigeKapacitetsomkostninger(Integer.parseInt(oevrigeKapacitetsomkostninger.getText().toString()));
                     }
+
+
                 }
 
-                if( !(markedsfoeringsbidrag.getText().toString().equals("tomt")) && !(oevrigeKapacitetsomkostninger.getText().toString().equals("")) ){
-                    indtjeningsbidrag.setText( Integer.toString( ( Integer.parseInt(markedsfoeringsbidrag.getText().toString()) ) - ( Integer.parseInt(oevrigeKapacitetsomkostninger.getText().toString() )) ) );
-                }
+
             }
         });
 
@@ -136,6 +170,13 @@ public class AndroidView extends AppCompatActivity {
         afskrivninger.setOnFocusChangeListener(new View.OnFocusChangeListener() {
 
             public void onFocusChange(View view, boolean hasFocus) {
+
+                if(hasFocus) {
+
+                    opdaterTal();
+
+                }
+
                 if(!hasFocus) {
                     if ( afskrivninger.getText().toString().equals("")) {
                         afskrivninger.setText(Integer.toString(0));
@@ -143,10 +184,7 @@ public class AndroidView extends AppCompatActivity {
                     } else {
                         model.setAfskrivninger(Integer.parseInt(afskrivninger.getText().toString()));
                     }
-                }
 
-                if( !(indtjeningsbidrag.getText().toString().equals("tomt")) && !(afskrivninger.getText().toString().equals("")) ){
-                    resultatFoerRenter.setText( Integer.toString( ( Integer.parseInt(indtjeningsbidrag.getText().toString()) ) - ( Integer.parseInt(afskrivninger.getText().toString() )) ) );
                 }
 
             }
@@ -157,6 +195,13 @@ public class AndroidView extends AppCompatActivity {
         renteomkostninger.setOnFocusChangeListener(new View.OnFocusChangeListener() {
 
             public void onFocusChange(View view, boolean hasFocus) {
+
+                if(hasFocus) {
+
+                    opdaterTal();
+
+                }
+
                 if(!hasFocus) {
                     if ( renteomkostninger.getText().toString().equals("")) {
                         renteomkostninger.setText(Integer.toString(0));
@@ -167,18 +212,17 @@ public class AndroidView extends AppCompatActivity {
                         model.setRenteomkostninger(Integer.parseInt(renteomkostninger.getText().toString()));
                     }
 
+
+
                 }
 
-                if( !(resultatFoerRenter.getText().toString().equals("tomt")) && !(renteomkostninger.getText().toString().equals("")) ){
-                    resultat.setText( Integer.toString( ( Integer.parseInt(resultatFoerRenter.getText().toString()) ) - ( Integer.parseInt(renteomkostninger.getText().toString() )) ) );
-                }
 
                 renteomkostninger.setOnEditorActionListener(new TextView.OnEditorActionListener() {
                     @Override
                     public boolean onEditorAction(TextView view, int actionId, KeyEvent event) {
                         if (actionId == EditorInfo.IME_ACTION_DONE) {
+                            opdaterTal();
                             renteomkostninger.clearFocus();
-
                             imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
                             return true;
                         }
@@ -194,6 +238,33 @@ public class AndroidView extends AppCompatActivity {
 
 
     }
+
+    public void opdaterTal(){
+
+        if( !(omsaetning.getText().toString().equals("")) && !(vareforbrug.getText().toString().equals(""))){
+            bruttofortjeneste.setText(Integer.toString( (Integer.parseInt(omsaetning.getText().toString())) - (Integer.parseInt(vareforbrug.getText().toString())) ) );
+            model.setBruttofortjeneste(Integer.parseInt(bruttofortjeneste.getText().toString()));
+        }
+
+        if( !(bruttofortjeneste.getText().toString().equals("tomt")) && !(markedsfoeringsomkostninger.getText().toString().equals("")) ){
+            markedsfoeringsbidrag.setText( Integer.toString( ( Integer.parseInt(bruttofortjeneste.getText().toString()) ) - ( Integer.parseInt(markedsfoeringsomkostninger.getText().toString() )) ) );
+        }
+
+        if( !(markedsfoeringsbidrag.getText().toString().equals("tomt")) && !(oevrigeKapacitetsomkostninger.getText().toString().equals("")) ){
+            indtjeningsbidrag.setText( Integer.toString( ( Integer.parseInt(markedsfoeringsbidrag.getText().toString()) ) - ( Integer.parseInt(oevrigeKapacitetsomkostninger.getText().toString() )) ) );
+        }
+
+        if( !(indtjeningsbidrag.getText().toString().equals("tomt")) && !(afskrivninger.getText().toString().equals("")) ){
+            resultatFoerRenter.setText( Integer.toString( ( Integer.parseInt(indtjeningsbidrag.getText().toString()) ) - ( Integer.parseInt(afskrivninger.getText().toString() )) ) );
+        }
+
+        if( !(resultatFoerRenter.getText().toString().equals("tomt")) && !(renteomkostninger.getText().toString().equals("")) ){
+            resultat.setText( Integer.toString( ( Integer.parseInt(resultatFoerRenter.getText().toString()) ) - ( Integer.parseInt(renteomkostninger.getText().toString() )) ) );
+        }
+
+
+    }
+
 
     public void goToUdregnOmsaetning(View view) {
 
@@ -238,6 +309,8 @@ public class AndroidView extends AppCompatActivity {
 
                     omsaetning.setText(Integer.toString(returnmodel.getOmsaetning()));
 
+                        opdaterTal();
+
                 }
                 break;
 
@@ -250,6 +323,8 @@ public class AndroidView extends AppCompatActivity {
 
                     vareforbrug.setText(Integer.toString(returnmodel.getVareforbrug()));
 
+                        opdaterTal();
+
                 }
                 break;
 
@@ -261,6 +336,8 @@ public class AndroidView extends AppCompatActivity {
                     model = returnmodel;
 
                     oevrigeKapacitetsomkostninger.setText(Integer.toString(returnmodel.getOevrigeKapacitetsomkostninger()));
+
+                        opdaterTal();
 
                 }
                 break;
