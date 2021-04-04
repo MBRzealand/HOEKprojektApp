@@ -75,7 +75,7 @@ public class AndroidView extends AppCompatActivity {
                         model.setOmsaetning(Integer.parseInt(omsaetning.getText().toString()));
                     }
 
-
+                    opdaterTal();
 
                 }
 
@@ -103,7 +103,7 @@ public class AndroidView extends AppCompatActivity {
                         model.setVareforbrug(Integer.parseInt(vareforbrug.getText().toString()));
                     }
 
-
+                    opdaterTal();
 
                 }
 
@@ -130,7 +130,7 @@ public class AndroidView extends AppCompatActivity {
                         model.setMarkedsfoeringsomkostninger(Integer.parseInt(markedsfoeringsomkostninger.getText().toString()));
                     }
 
-
+                    opdaterTal();
 
                 }
 
@@ -158,6 +158,7 @@ public class AndroidView extends AppCompatActivity {
                         model.setOevrigeKapacitetsomkostninger(Integer.parseInt(oevrigeKapacitetsomkostninger.getText().toString()));
                     }
 
+                    opdaterTal();
 
                 }
 
@@ -184,6 +185,8 @@ public class AndroidView extends AppCompatActivity {
                     } else {
                         model.setAfskrivninger(Integer.parseInt(afskrivninger.getText().toString()));
                     }
+
+                    opdaterTal();
 
                 }
 
@@ -212,7 +215,7 @@ public class AndroidView extends AppCompatActivity {
                         model.setRenteomkostninger(Integer.parseInt(renteomkostninger.getText().toString()));
                     }
 
-
+                    opdaterTal();
 
                 }
 
@@ -221,7 +224,6 @@ public class AndroidView extends AppCompatActivity {
                     @Override
                     public boolean onEditorAction(TextView view, int actionId, KeyEvent event) {
                         if (actionId == EditorInfo.IME_ACTION_DONE) {
-                            opdaterTal();
                             renteomkostninger.clearFocus();
                             imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
                             return true;

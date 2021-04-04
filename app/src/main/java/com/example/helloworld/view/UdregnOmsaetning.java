@@ -90,6 +90,13 @@ public class UdregnOmsaetning extends AppCompatActivity {
         omsaetningNavnInput.setOnFocusChangeListener(new View.OnFocusChangeListener() {
 
             public void onFocusChange(View view, boolean hasFocus) {
+
+                if(hasFocus) {
+
+                    opdaterTal();
+
+                }
+
                 if(!hasFocus) {
                     if ( omsaetningNavnInput.getText().toString().equals("")) {
                         omsaetningNavnInput.setText("Intet Navn");
@@ -97,11 +104,12 @@ public class UdregnOmsaetning extends AppCompatActivity {
                     } else {
                         omsaetningElement.setVarenavn(omsaetningNavnInput.getText().toString());
                     }
+
+                    opdaterTal();
+
                 }
 
-                if( (!(afsaetningInput.getText().toString().equals("")) && !(salgsprisInput.getText().toString().equals(""))) && !(omsaetningNavnInput.getText().toString().equals("")) ){
-                    omsaetningElement.setOmsaetning( Integer.toString( ( Integer.parseInt(afsaetningInput.getText().toString()) * ( Integer.parseInt(salgsprisInput.getText().toString() )) )) );
-                }
+
 
             }
         });
@@ -110,6 +118,13 @@ public class UdregnOmsaetning extends AppCompatActivity {
         afsaetningInput.setOnFocusChangeListener(new View.OnFocusChangeListener() {
 
             public void onFocusChange(View view, boolean hasFocus) {
+
+                if(hasFocus) {
+
+                    opdaterTal();
+
+                }
+
                 if(!hasFocus) {
                     if ( afsaetningInput.getText().toString().equals("")) {
                         afsaetningInput.setText(Integer.toString(0));
@@ -117,11 +132,11 @@ public class UdregnOmsaetning extends AppCompatActivity {
                     } else {
                         omsaetningElement.setAfsaetning(afsaetningInput.getText().toString());
                     }
+
+                    opdaterTal();
+
                 }
 
-                if( (!(afsaetningInput.getText().toString().equals("")) && !(salgsprisInput.getText().toString().equals(""))) && !(omsaetningNavnInput.getText().toString().equals("")) ){
-                    omsaetningElement.setOmsaetning( Integer.toString( ( Integer.parseInt(afsaetningInput.getText().toString()) * ( Integer.parseInt(salgsprisInput.getText().toString() )) )) );
-                }
 
             }
         });
@@ -129,6 +144,13 @@ public class UdregnOmsaetning extends AppCompatActivity {
         salgsprisInput.setOnFocusChangeListener(new View.OnFocusChangeListener() {
 
             public void onFocusChange(View view, boolean hasFocus) {
+
+                if(hasFocus) {
+
+                    opdaterTal();
+
+                }
+
                 if(!hasFocus) {
                     if ( salgsprisInput.getText().toString().equals("")) {
                         salgsprisInput.setText(Integer.toString(0));
@@ -136,12 +158,17 @@ public class UdregnOmsaetning extends AppCompatActivity {
                     } else {
                         omsaetningElement.setSalgspris(Integer.toString(Integer.parseInt(salgsprisInput.getText().toString())));
                     }
+
+                    if( (!(afsaetningInput.getText().toString().equals("")) && !(salgsprisInput.getText().toString().equals(""))) && !(omsaetningNavnInput.getText().toString().equals("")) ){
+                        omsaetningElement.setOmsaetning( Integer.toString (( Integer.parseInt(afsaetningInput.getText().toString())  * ( Integer.parseInt(salgsprisInput.getText().toString() )) ) ));
+
+                    }
+
+                    opdaterTal();
+
                 }
 
-                if( (!(afsaetningInput.getText().toString().equals("")) && !(salgsprisInput.getText().toString().equals(""))) && !(omsaetningNavnInput.getText().toString().equals("")) ){
-                    omsaetningElement.setOmsaetning( Integer.toString (( Integer.parseInt(afsaetningInput.getText().toString())  * ( Integer.parseInt(salgsprisInput.getText().toString() )) ) ));
 
-                }
 
                 salgsprisInput.setOnEditorActionListener(new TextView.OnEditorActionListener() {
                     @Override
@@ -174,6 +201,8 @@ public class UdregnOmsaetning extends AppCompatActivity {
     }
 
     public void addElementToTable(View view) {
+
+        salgsprisInput.clearFocus();
 
         if( (!omsaetningNavnInput.getText().toString().equals("") && !salgsprisInput.getText().toString().equals("")) && !afsaetningInput.getText().toString().equals("") ) {
 
@@ -275,6 +304,14 @@ public class UdregnOmsaetning extends AppCompatActivity {
         }
 
         finish();
+
+    }
+
+    public void opdaterTal(){
+
+        if( (!(afsaetningInput.getText().toString().equals("")) && !(salgsprisInput.getText().toString().equals(""))) && !(omsaetningNavnInput.getText().toString().equals("")) ){
+            omsaetningElement.setOmsaetning( Integer.toString( ( Integer.parseInt(afsaetningInput.getText().toString()) * ( Integer.parseInt(salgsprisInput.getText().toString() )) )) );
+        }
 
     }
 

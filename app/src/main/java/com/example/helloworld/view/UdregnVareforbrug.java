@@ -93,6 +93,13 @@ public class UdregnVareforbrug extends AppCompatActivity {
         vareforbrugNavnInput.setOnFocusChangeListener(new View.OnFocusChangeListener() {
 
             public void onFocusChange(View view, boolean hasFocus) {
+
+                if(hasFocus) {
+
+                    opdaterTal();
+
+                }
+
                 if(!hasFocus) {
                     if ( vareforbrugNavnInput.getText().toString().equals("")) {
                         vareforbrugNavnInput.setText("Intet Navn");
@@ -100,11 +107,12 @@ public class UdregnVareforbrug extends AppCompatActivity {
                     } else {
                         vareforbrugElement.setVarenavn(vareforbrugNavnInput.getText().toString());
                     }
+
+                    opdaterTal();
+
                 }
 
-                if( (!(opkoebInput.getText().toString().equals("")) && !(koebsprisInput.getText().toString().equals(""))) && !(vareforbrugNavnInput.getText().toString().equals("")) ){
-                    vareforbrugElement.setVareforbrug( Integer.toString( ( Integer.parseInt(opkoebInput.getText().toString()) * ( Integer.parseInt(koebsprisInput.getText().toString() )) )) );
-                }
+
 
             }
         });
@@ -113,6 +121,13 @@ public class UdregnVareforbrug extends AppCompatActivity {
         opkoebInput.setOnFocusChangeListener(new View.OnFocusChangeListener() {
 
             public void onFocusChange(View view, boolean hasFocus) {
+
+                if(hasFocus) {
+
+                    opdaterTal();
+
+                }
+
                 if(!hasFocus) {
                     if ( opkoebInput.getText().toString().equals("")) {
                         opkoebInput.setText(Integer.toString(0));
@@ -120,11 +135,11 @@ public class UdregnVareforbrug extends AppCompatActivity {
                     } else {
                         vareforbrugElement.setOpkoeb(opkoebInput.getText().toString());
                     }
+
+                    opdaterTal();
+
                 }
 
-                if( (!(opkoebInput.getText().toString().equals("")) && !(koebsprisInput.getText().toString().equals(""))) && !(vareforbrugNavnInput.getText().toString().equals("")) ){
-                    vareforbrugElement.setVareforbrug( Integer.toString( ( Integer.parseInt(opkoebInput.getText().toString()) * ( Integer.parseInt(koebsprisInput.getText().toString() )) )) );
-                }
 
             }
         });
@@ -132,6 +147,13 @@ public class UdregnVareforbrug extends AppCompatActivity {
         koebsprisInput.setOnFocusChangeListener(new View.OnFocusChangeListener() {
 
             public void onFocusChange(View view, boolean hasFocus) {
+
+                if(hasFocus) {
+
+                    opdaterTal();
+
+                }
+
                 if(!hasFocus) {
                     if ( koebsprisInput.getText().toString().equals("")) {
                         koebsprisInput.setText(Integer.toString(0));
@@ -139,10 +161,8 @@ public class UdregnVareforbrug extends AppCompatActivity {
                     } else {
                         vareforbrugElement.setKoebsPris(Integer.toString(Integer.parseInt(koebsprisInput.getText().toString())));
                     }
-                }
 
-                if( (!(opkoebInput.getText().toString().equals("")) && !(koebsprisInput.getText().toString().equals(""))) && !(vareforbrugNavnInput.getText().toString().equals("")) ){
-                    vareforbrugElement.setVareforbrug( Integer.toString (( Integer.parseInt(opkoebInput.getText().toString())  * ( Integer.parseInt(koebsprisInput.getText().toString() )) ) ));
+                    opdaterTal();
 
                 }
 
@@ -175,6 +195,8 @@ public class UdregnVareforbrug extends AppCompatActivity {
     }
 
     public void addElementToTable(View view) {
+
+        koebsprisInput.clearFocus();
 
         if( (!vareforbrugNavnInput.getText().toString().equals("") && !opkoebInput.getText().toString().equals("")) && !koebsprisInput.getText().toString().equals("") ) {
 
@@ -276,4 +298,13 @@ public class UdregnVareforbrug extends AppCompatActivity {
         finish();
 
     }
+
+    public void opdaterTal(){
+
+        if( (!(opkoebInput.getText().toString().equals("")) && !(koebsprisInput.getText().toString().equals(""))) && !(vareforbrugNavnInput.getText().toString().equals("")) ){
+            vareforbrugElement.setVareforbrug( Integer.toString( ( Integer.parseInt(opkoebInput.getText().toString()) * ( Integer.parseInt(koebsprisInput.getText().toString() )) )) );
+        }
+
+    }
+
 }

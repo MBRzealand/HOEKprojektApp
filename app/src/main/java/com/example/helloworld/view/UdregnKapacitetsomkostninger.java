@@ -87,6 +87,13 @@ public class UdregnKapacitetsomkostninger extends AppCompatActivity {
         kapacitetsomkostningNavnInput.setOnFocusChangeListener(new View.OnFocusChangeListener() {
 
             public void onFocusChange(View view, boolean hasFocus) {
+
+                if(hasFocus) {
+
+                    opdaterTal();
+
+                }
+
                 if(!hasFocus) {
                     if ( kapacitetsomkostningNavnInput.getText().toString().equals("")) {
                         kapacitetsomkostningNavnInput.setText("Intet Navn");
@@ -94,11 +101,12 @@ public class UdregnKapacitetsomkostninger extends AppCompatActivity {
                     } else {
                         kapacitetsomkostningElement.setKapacitetsomkostningNavn(kapacitetsomkostningNavnInput.getText().toString());
                     }
+
+                    opdaterTal();
+
                 }
 
-                if( (!(kapacitetsomkostningPrisInput.getText().toString().equals("")) ) && !(kapacitetsomkostningNavnInput.getText().toString().equals("")) ){
-                    kapacitetsomkostningElement.setKapacitetsomkostningPris( Integer.toString( ( Integer.parseInt(kapacitetsomkostningPrisInput.getText().toString()) )) );
-                }
+
 
             }
         });
@@ -107,6 +115,13 @@ public class UdregnKapacitetsomkostninger extends AppCompatActivity {
         kapacitetsomkostningPrisInput.setOnFocusChangeListener(new View.OnFocusChangeListener() {
 
             public void onFocusChange(View view, boolean hasFocus) {
+
+                if(hasFocus) {
+
+                    opdaterTal();
+
+                }
+
                 if(!hasFocus) {
                     if ( kapacitetsomkostningPrisInput.getText().toString().equals("")) {
                         kapacitetsomkostningPrisInput.setText(Integer.toString(0));
@@ -114,10 +129,9 @@ public class UdregnKapacitetsomkostninger extends AppCompatActivity {
                     } else {
                         kapacitetsomkostningElement.setKapacitetsomkostningPris(kapacitetsomkostningPrisInput.getText().toString());
                     }
-                }
 
-                if( (!(kapacitetsomkostningPrisInput.getText().toString().equals("")) ) && !(kapacitetsomkostningNavnInput.getText().toString().equals("")) ){
-                    kapacitetsomkostningElement.setKapacitetsomkostningPris( Integer.toString( ( Integer.parseInt(kapacitetsomkostningPrisInput.getText().toString()) )) );
+                    opdaterTal();
+
                 }
 
 
@@ -147,6 +161,8 @@ public class UdregnKapacitetsomkostninger extends AppCompatActivity {
     }
 
     public void addElementToTable(View view) {
+
+        kapacitetsomkostningPrisInput.clearFocus();
 
         if( !kapacitetsomkostningNavnInput.getText().toString().equals("") && !kapacitetsomkostningPrisInput.getText().toString().equals("") ) {
 
@@ -240,4 +256,13 @@ public class UdregnKapacitetsomkostninger extends AppCompatActivity {
         finish();
 
     }
+
+    public void opdaterTal(){
+
+        if( (!(kapacitetsomkostningPrisInput.getText().toString().equals("")) ) && !(kapacitetsomkostningNavnInput.getText().toString().equals("")) ){
+            kapacitetsomkostningElement.setKapacitetsomkostningPris( Integer.toString( ( Integer.parseInt(kapacitetsomkostningPrisInput.getText().toString()) )) );
+        }
+
+    }
+
 }
