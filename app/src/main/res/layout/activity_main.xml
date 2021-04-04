@@ -48,7 +48,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.80" app:layout_constraintVertical_bias="0.30"
-            android:text="tomt" android:textStyle="bold"
+            android:text="-" android:textStyle="bold"
             app:layout_constraintTop_toTopOf="parent" android:id="@+id/markedsfoeringsbidrag"
             android:textAlignment="viewEnd" android:textColor="#000000"/>
     <EditText
@@ -181,7 +181,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.80" app:layout_constraintVertical_bias="0.20"
-            android:text="tomt" android:textStyle="bold"
+            android:text="-" android:textStyle="bold"
             app:layout_constraintTop_toTopOf="parent" android:textAlignment="viewEnd" android:textColor="#000000"/>
     <TextView
             android:layout_width="100dp"
@@ -189,7 +189,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.80" app:layout_constraintVertical_bias="0.40"
-            android:text="tomt" android:textStyle="bold"
+            android:text="-" android:textStyle="bold"
             app:layout_constraintTop_toTopOf="parent" android:id="@+id/indtjeningsbidrag"
             android:textAlignment="viewEnd" android:textColor="#000000"/>
     <TextView
@@ -198,7 +198,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.80" app:layout_constraintVertical_bias="0.50"
-            android:text="tomt" android:textStyle="bold"
+            android:text="-" android:textStyle="bold"
             app:layout_constraintTop_toTopOf="parent" android:id="@+id/resultatFoerRenter"
             android:textAlignment="viewEnd" android:textColor="#000000"/>
     <TextView
@@ -244,7 +244,7 @@
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"
             android:textAlignment="viewEnd"/>
     <TextView
-            android:text="tomt"
+            android:text="-"
             android:layout_width="220dp"
             android:layout_height="wrap_content" android:id="@+id/resultat"
             app:layout_constraintEnd_toEndOf="parent"

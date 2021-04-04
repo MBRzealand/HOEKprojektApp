@@ -246,19 +246,19 @@ public class AndroidView extends AppCompatActivity {
             model.setBruttofortjeneste(Integer.parseInt(bruttofortjeneste.getText().toString()));
         }
 
-        if( !(bruttofortjeneste.getText().toString().equals("tomt")) && !(markedsfoeringsomkostninger.getText().toString().equals("")) ){
+        if( !(bruttofortjeneste.getText().toString().equals("-")) && !(markedsfoeringsomkostninger.getText().toString().equals("")) ){
             markedsfoeringsbidrag.setText( Integer.toString( ( Integer.parseInt(bruttofortjeneste.getText().toString()) ) - ( Integer.parseInt(markedsfoeringsomkostninger.getText().toString() )) ) );
         }
 
-        if( !(markedsfoeringsbidrag.getText().toString().equals("tomt")) && !(oevrigeKapacitetsomkostninger.getText().toString().equals("")) ){
+        if( !(markedsfoeringsbidrag.getText().toString().equals("-")) && !(oevrigeKapacitetsomkostninger.getText().toString().equals("")) ){
             indtjeningsbidrag.setText( Integer.toString( ( Integer.parseInt(markedsfoeringsbidrag.getText().toString()) ) - ( Integer.parseInt(oevrigeKapacitetsomkostninger.getText().toString() )) ) );
         }
 
-        if( !(indtjeningsbidrag.getText().toString().equals("tomt")) && !(afskrivninger.getText().toString().equals("")) ){
+        if( !(indtjeningsbidrag.getText().toString().equals("-")) && !(afskrivninger.getText().toString().equals("")) ){
             resultatFoerRenter.setText( Integer.toString( ( Integer.parseInt(indtjeningsbidrag.getText().toString()) ) - ( Integer.parseInt(afskrivninger.getText().toString() )) ) );
         }
 
-        if( !(resultatFoerRenter.getText().toString().equals("tomt")) && !(renteomkostninger.getText().toString().equals("")) ){
+        if( !(resultatFoerRenter.getText().toString().equals("-")) && !(renteomkostninger.getText().toString().equals("")) ){
             resultat.setText( Integer.toString( ( Integer.parseInt(resultatFoerRenter.getText().toString()) ) - ( Integer.parseInt(renteomkostninger.getText().toString() )) ) );
         }
 
