@@ -130,8 +130,8 @@ public class UdregnVareforbrug extends AppCompatActivity {
 
                 if(!hasFocus) {
                     if ( opkoebInput.getText().toString().equals("")) {
-                        opkoebInput.setText(Integer.toString(0));
-                        vareforbrugElement.setOpkoeb(Integer.toString(0));
+                        opkoebInput.setText(Long.toString(0));
+                        vareforbrugElement.setOpkoeb(Long.toString(0));
                     } else {
                         vareforbrugElement.setOpkoeb(opkoebInput.getText().toString());
                     }
@@ -156,10 +156,10 @@ public class UdregnVareforbrug extends AppCompatActivity {
 
                 if(!hasFocus) {
                     if ( koebsprisInput.getText().toString().equals("")) {
-                        koebsprisInput.setText(Integer.toString(0));
-                        vareforbrugElement.setKoebsPris(Integer.toString(0));
+                        koebsprisInput.setText(Long.toString(0));
+                        vareforbrugElement.setKoebsPris(Long.toString(0));
                     } else {
-                        vareforbrugElement.setKoebsPris(Integer.toString(Integer.parseInt(koebsprisInput.getText().toString())));
+                        vareforbrugElement.setKoebsPris(Long.toString(Long.parseLong(koebsprisInput.getText().toString())));
                     }
 
                     opdaterTal();
@@ -223,7 +223,7 @@ public class UdregnVareforbrug extends AppCompatActivity {
             int totalVareforbrug = 0;
 
             for (int i = 0; i < listeAfVareforbrug.size(); i++) {
-                totalVareforbrug += Integer.parseInt(listeAfVareforbrug.get(i)[3]);
+                totalVareforbrug += Long.parseLong(listeAfVareforbrug.get(i)[3]);
 
             }
 
@@ -233,7 +233,7 @@ public class UdregnVareforbrug extends AppCompatActivity {
             }
 
             table2.setDataAdapter(new SimpleTableDataAdapter(this, listeAfVareforbrugMedEnheder));
-            udregnVareforbrugResultat.setText(Integer.toString(totalVareforbrug) + " kr");
+            udregnVareforbrugResultat.setText(Long.toString(totalVareforbrug) + " kr");
             model.setVareforbrug(totalVareforbrug);
 
             vareforbrugNavnInput.setText("");
@@ -302,7 +302,7 @@ public class UdregnVareforbrug extends AppCompatActivity {
     public void opdaterTal(){
 
         if( (!(opkoebInput.getText().toString().equals("")) && !(koebsprisInput.getText().toString().equals(""))) && !(vareforbrugNavnInput.getText().toString().equals("")) ){
-            vareforbrugElement.setVareforbrug( Integer.toString( ( Integer.parseInt(opkoebInput.getText().toString()) * ( Integer.parseInt(koebsprisInput.getText().toString() )) )) );
+            vareforbrugElement.setVareforbrug( Long.toString( ( Long.parseLong(opkoebInput.getText().toString()) * ( Long.parseLong(koebsprisInput.getText().toString() )) )) );
         }
 
     }

@@ -4,108 +4,107 @@ import java.io.Serializable;
 
 public class Model implements Serializable {
 
-    private int omsaetning;
-    private int vareforbrug;
-    private int bruttofortjeneste;
-    private int markedsfoeringsomkostninger;
-    private int markedsfoeringsbidrag;
-    private int oevrigeKapacitetsomkostninger;
-    private int indtjeningsbidrag;
-    private int afskrivninger;
-    private int resultatFoerRenter;
-    private int renteomkostninger;
-    private int resultat;
+    private long omsaetning;
+    private long vareforbrug;
+    private long bruttofortjeneste;
+    private long markedsfoeringsomkostninger;
+    private long markedsfoeringsbidrag;
+    private long oevrigeKapacitetsomkostninger;
+    private long indtjeningsbidrag;
+    private long afskrivninger;
+    private long resultatFoerRenter;
+    private long renteomkostninger;
+    private long resultat;
 
     public Model() {
 
     }
 
-    public int getOmsaetning() {
+    public long getOmsaetning() {
         return omsaetning;
     }
 
-    public void setOmsaetning(int omsaetning) {
+    public void setOmsaetning(long omsaetning) {
         this.omsaetning = omsaetning;
     }
 
-    public int getVareforbrug() {
+    public long getVareforbrug() {
         return vareforbrug;
     }
 
-    public void setVareforbrug(int vareforbrug) {
+    public void setVareforbrug(long vareforbrug) {
         this.vareforbrug = vareforbrug;
     }
 
-    public int getBruttofortjeneste() {
+    public long getBruttofortjeneste() {
         return bruttofortjeneste;
     }
 
-    public void setBruttofortjeneste(int bruttofortjeneste) {
+    public void setBruttofortjeneste(long bruttofortjeneste) {
         this.bruttofortjeneste = bruttofortjeneste;
     }
 
-    public int getMarkedsfoeringsomkostninger() {
+    public long getMarkedsfoeringsomkostninger() {
         return markedsfoeringsomkostninger;
     }
 
-    public void setMarkedsfoeringsomkostninger(int markedsfoeringsomkostninger) {
+    public void setMarkedsfoeringsomkostninger(long markedsfoeringsomkostninger) {
         this.markedsfoeringsomkostninger = markedsfoeringsomkostninger;
     }
 
-    public int getMarkedsfoeringsbidrag() {
+    public long getMarkedsfoeringsbidrag() {
         return markedsfoeringsbidrag;
     }
 
-    public void setMarkedsfoeringsbidrag(int markedsfoeringsbidrag) {
+    public void setMarkedsfoeringsbidrag(long markedsfoeringsbidrag) {
         this.markedsfoeringsbidrag = markedsfoeringsbidrag;
     }
 
-    public int getOevrigeKapacitetsomkostninger() {
+    public long getOevrigeKapacitetsomkostninger() {
         return oevrigeKapacitetsomkostninger;
     }
 
-    public void setOevrigeKapacitetsomkostninger(int oevrigeKapacitetsomkostninger) {
+    public void setOevrigeKapacitetsomkostninger(long oevrigeKapacitetsomkostninger) {
         this.oevrigeKapacitetsomkostninger = oevrigeKapacitetsomkostninger;
     }
 
-    public int getIndtjeningsbidrag() {
+    public long getIndtjeningsbidrag() {
         return indtjeningsbidrag;
     }
 
-    public void setIndtjeningsbidrag(int indtjeningsbidrag) {
+    public void setIndtjeningsbidrag(long indtjeningsbidrag) {
         this.indtjeningsbidrag = indtjeningsbidrag;
     }
 
-    public int getAfskrivninger() {
+    public long getAfskrivninger() {
         return afskrivninger;
     }
 
-    public void setAfskrivninger(int afskrivninger) {
+    public void setAfskrivninger(long afskrivninger) {
         this.afskrivninger = afskrivninger;
     }
 
-    public int getResultatFoerRenter() {
+    public long getResultatFoerRenter() {
         return resultatFoerRenter;
     }
 
-    public void setResultatFoerRenter(int resultatFoerRenter) {
+    public void setResultatFoerRenter(long resultatFoerRenter) {
         this.resultatFoerRenter = resultatFoerRenter;
     }
 
-    public int getRenteomkostninger() {
+    public long getRenteomkostninger() {
         return renteomkostninger;
     }
 
-    public void setRenteomkostninger(int renteomkostninger) {
+    public void setRenteomkostninger(long renteomkostninger) {
         this.renteomkostninger = renteomkostninger;
     }
 
-    public int getResultat() {
+    public long getResultat() {
         return resultat;
     }
 
-    public void setResultat(int resultat) {
+    public void setResultat(long resultat) {
         this.resultat = resultat;
     }
-
 }

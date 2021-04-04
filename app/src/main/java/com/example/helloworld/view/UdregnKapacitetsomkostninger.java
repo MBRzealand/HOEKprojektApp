@@ -124,8 +124,8 @@ public class UdregnKapacitetsomkostninger extends AppCompatActivity {
 
                 if(!hasFocus) {
                     if ( kapacitetsomkostningPrisInput.getText().toString().equals("")) {
-                        kapacitetsomkostningPrisInput.setText(Integer.toString(0));
-                        kapacitetsomkostningElement.setKapacitetsomkostningPris(Integer.toString(0));
+                        kapacitetsomkostningPrisInput.setText(Long.toString(0));
+                        kapacitetsomkostningElement.setKapacitetsomkostningPris(Long.toString(0));
                     } else {
                         kapacitetsomkostningElement.setKapacitetsomkostningPris(kapacitetsomkostningPrisInput.getText().toString());
                     }
@@ -186,7 +186,7 @@ public class UdregnKapacitetsomkostninger extends AppCompatActivity {
             int totalKapacitetsomkostninger = 0;
 
             for (int i = 0; i < listeAfKapacitetsomkostninger.size(); i++) {
-                totalKapacitetsomkostninger += Integer.parseInt(listeAfKapacitetsomkostninger.get(i)[1]);
+                totalKapacitetsomkostninger += Long.parseLong(listeAfKapacitetsomkostninger.get(i)[1]);
 
             }
 
@@ -196,7 +196,7 @@ public class UdregnKapacitetsomkostninger extends AppCompatActivity {
             }
 
             table3.setDataAdapter(new SimpleTableDataAdapter(this, listeAfKapacitetsomkostningerMedEnheder));
-            udregnKapacitetsomkostningResultat.setText(Integer.toString(totalKapacitetsomkostninger) + " kr");
+            udregnKapacitetsomkostningResultat.setText(Long.toString(totalKapacitetsomkostninger) + " kr");
             model.setOevrigeKapacitetsomkostninger(totalKapacitetsomkostninger);
 
             kapacitetsomkostningNavnInput.setText("");
@@ -260,7 +260,7 @@ public class UdregnKapacitetsomkostninger extends AppCompatActivity {
     public void opdaterTal(){
 
         if( (!(kapacitetsomkostningPrisInput.getText().toString().equals("")) ) && !(kapacitetsomkostningNavnInput.getText().toString().equals("")) ){
-            kapacitetsomkostningElement.setKapacitetsomkostningPris( Integer.toString( ( Integer.parseInt(kapacitetsomkostningPrisInput.getText().toString()) )) );
+            kapacitetsomkostningElement.setKapacitetsomkostningPris( Long.toString( ( Long.parseLong(kapacitetsomkostningPrisInput.getText().toString()) )) );
         }
 
     }

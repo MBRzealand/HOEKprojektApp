@@ -69,10 +69,10 @@ public class AndroidView extends AppCompatActivity {
 
                 if(!hasFocus) {
                     if ( omsaetning.getText().toString().equals("")) {
-                        omsaetning.setText(Integer.toString(0));
+                        omsaetning.setText(Long.toString(0));
                         model.setOmsaetning(0);
                     } else {
-                        model.setOmsaetning(Integer.parseInt(omsaetning.getText().toString()));
+                        model.setOmsaetning(Long.parseLong(omsaetning.getText().toString()));
                     }
 
                     opdaterTal();
@@ -96,11 +96,11 @@ public class AndroidView extends AppCompatActivity {
 
                 if(!hasFocus) {
                     if ( vareforbrug.getText().toString().equals("")) {
-                        vareforbrug.setText(Integer.toString(0));
+                        vareforbrug.setText(Long.toString(0));
                         model.setVareforbrug(0);
 
                     } else {
-                        model.setVareforbrug(Integer.parseInt(vareforbrug.getText().toString()));
+                        model.setVareforbrug(Long.parseLong(vareforbrug.getText().toString()));
                     }
 
                     opdaterTal();
@@ -124,10 +124,10 @@ public class AndroidView extends AppCompatActivity {
 
                 if(!hasFocus) {
                     if ( markedsfoeringsomkostninger.getText().toString().equals("")) {
-                        markedsfoeringsomkostninger.setText(Integer.toString(0));
+                        markedsfoeringsomkostninger.setText(Long.toString(0));
                         model.setMarkedsfoeringsomkostninger(0);
                     } else {
-                        model.setMarkedsfoeringsomkostninger(Integer.parseInt(markedsfoeringsomkostninger.getText().toString()));
+                        model.setMarkedsfoeringsomkostninger(Long.parseLong(markedsfoeringsomkostninger.getText().toString()));
                     }
 
                     opdaterTal();
@@ -152,10 +152,10 @@ public class AndroidView extends AppCompatActivity {
 
                 if(!hasFocus) {
                     if ( oevrigeKapacitetsomkostninger.getText().toString().equals("")) {
-                        oevrigeKapacitetsomkostninger.setText(Integer.toString(0));
+                        oevrigeKapacitetsomkostninger.setText(Long.toString(0));
                         model.setOevrigeKapacitetsomkostninger(0);
                     } else {
-                        model.setOevrigeKapacitetsomkostninger(Integer.parseInt(oevrigeKapacitetsomkostninger.getText().toString()));
+                        model.setOevrigeKapacitetsomkostninger(Long.parseLong(oevrigeKapacitetsomkostninger.getText().toString()));
                     }
 
                     opdaterTal();
@@ -180,10 +180,10 @@ public class AndroidView extends AppCompatActivity {
 
                 if(!hasFocus) {
                     if ( afskrivninger.getText().toString().equals("")) {
-                        afskrivninger.setText(Integer.toString(0));
+                        afskrivninger.setText(Long.toString(0));
                         model.setAfskrivninger(0);
                     } else {
-                        model.setAfskrivninger(Integer.parseInt(afskrivninger.getText().toString()));
+                        model.setAfskrivninger(Long.parseLong(afskrivninger.getText().toString()));
                     }
 
                     opdaterTal();
@@ -207,12 +207,12 @@ public class AndroidView extends AppCompatActivity {
 
                 if(!hasFocus) {
                     if ( renteomkostninger.getText().toString().equals("")) {
-                        renteomkostninger.setText(Integer.toString(0));
+                        renteomkostninger.setText(Long.toString(0));
                         model.setRenteomkostninger(0);
 
 
                     } else {
-                        model.setRenteomkostninger(Integer.parseInt(renteomkostninger.getText().toString()));
+                        model.setRenteomkostninger(Long.parseLong(renteomkostninger.getText().toString()));
                     }
 
                     opdaterTal();
@@ -244,24 +244,24 @@ public class AndroidView extends AppCompatActivity {
     public void opdaterTal(){
 
         if( !(omsaetning.getText().toString().equals("")) && !(vareforbrug.getText().toString().equals(""))){
-            bruttofortjeneste.setText(Integer.toString( (Integer.parseInt(omsaetning.getText().toString())) - (Integer.parseInt(vareforbrug.getText().toString())) ) );
-            model.setBruttofortjeneste(Integer.parseInt(bruttofortjeneste.getText().toString()));
+            bruttofortjeneste.setText(Long.toString( (Long.parseLong(omsaetning.getText().toString())) - (Long.parseLong(vareforbrug.getText().toString())) ) );
+            model.setBruttofortjeneste(Long.parseLong(bruttofortjeneste.getText().toString()));
         }
 
         if( !(bruttofortjeneste.getText().toString().equals("-")) && !(markedsfoeringsomkostninger.getText().toString().equals("")) ){
-            markedsfoeringsbidrag.setText( Integer.toString( ( Integer.parseInt(bruttofortjeneste.getText().toString()) ) - ( Integer.parseInt(markedsfoeringsomkostninger.getText().toString() )) ) );
+            markedsfoeringsbidrag.setText( Long.toString( ( Long.parseLong(bruttofortjeneste.getText().toString()) ) - ( Long.parseLong(markedsfoeringsomkostninger.getText().toString() )) ) );
         }
 
         if( !(markedsfoeringsbidrag.getText().toString().equals("-")) && !(oevrigeKapacitetsomkostninger.getText().toString().equals("")) ){
-            indtjeningsbidrag.setText( Integer.toString( ( Integer.parseInt(markedsfoeringsbidrag.getText().toString()) ) - ( Integer.parseInt(oevrigeKapacitetsomkostninger.getText().toString() )) ) );
+            indtjeningsbidrag.setText( Long.toString( ( Long.parseLong(markedsfoeringsbidrag.getText().toString()) ) - ( Long.parseLong(oevrigeKapacitetsomkostninger.getText().toString() )) ) );
         }
 
         if( !(indtjeningsbidrag.getText().toString().equals("-")) && !(afskrivninger.getText().toString().equals("")) ){
-            resultatFoerRenter.setText( Integer.toString( ( Integer.parseInt(indtjeningsbidrag.getText().toString()) ) - ( Integer.parseInt(afskrivninger.getText().toString() )) ) );
+            resultatFoerRenter.setText( Long.toString( ( Long.parseLong(indtjeningsbidrag.getText().toString()) ) - ( Long.parseLong(afskrivninger.getText().toString() )) ) );
         }
 
         if( !(resultatFoerRenter.getText().toString().equals("-")) && !(renteomkostninger.getText().toString().equals("")) ){
-            resultat.setText( Integer.toString( ( Integer.parseInt(resultatFoerRenter.getText().toString()) ) - ( Integer.parseInt(renteomkostninger.getText().toString() )) ) );
+            resultat.setText( Long.toString( ( Long.parseLong(resultatFoerRenter.getText().toString()) ) - ( Long.parseLong(renteomkostninger.getText().toString() )) ) );
         }
 
 
@@ -309,7 +309,8 @@ public class AndroidView extends AppCompatActivity {
 
                     model = returnmodel;
 
-                    omsaetning.setText(Integer.toString(returnmodel.getOmsaetning()));
+
+                    omsaetning.setText(Long.toString(returnmodel.getOmsaetning()));
 
                         opdaterTal();
 
@@ -323,7 +324,7 @@ public class AndroidView extends AppCompatActivity {
 
                     model = returnmodel;
 
-                    vareforbrug.setText(Integer.toString(returnmodel.getVareforbrug()));
+                    vareforbrug.setText(Long.toString(returnmodel.getVareforbrug()));
 
                         opdaterTal();
 
@@ -337,7 +338,7 @@ public class AndroidView extends AppCompatActivity {
 
                     model = returnmodel;
 
-                    oevrigeKapacitetsomkostninger.setText(Integer.toString(returnmodel.getOevrigeKapacitetsomkostninger()));
+                    oevrigeKapacitetsomkostninger.setText(Long.toString(returnmodel.getOevrigeKapacitetsomkostninger()));
 
                         opdaterTal();
 

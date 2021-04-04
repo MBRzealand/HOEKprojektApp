@@ -127,8 +127,8 @@ public class UdregnOmsaetning extends AppCompatActivity {
 
                 if(!hasFocus) {
                     if ( afsaetningInput.getText().toString().equals("")) {
-                        afsaetningInput.setText(Integer.toString(0));
-                        omsaetningElement.setAfsaetning(Integer.toString(0));
+                        afsaetningInput.setText(Long.toString(0));
+                        omsaetningElement.setAfsaetning(Long.toString(0));
                     } else {
                         omsaetningElement.setAfsaetning(afsaetningInput.getText().toString());
                     }
@@ -153,14 +153,14 @@ public class UdregnOmsaetning extends AppCompatActivity {
 
                 if(!hasFocus) {
                     if ( salgsprisInput.getText().toString().equals("")) {
-                        salgsprisInput.setText(Integer.toString(0));
-                        omsaetningElement.setSalgspris(Integer.toString(0));
+                        salgsprisInput.setText(Long.toString(0));
+                        omsaetningElement.setSalgspris(Long.toString(0));
                     } else {
-                        omsaetningElement.setSalgspris(Integer.toString(Integer.parseInt(salgsprisInput.getText().toString())));
+                        omsaetningElement.setSalgspris(Long.toString(Long.parseLong(salgsprisInput.getText().toString())));
                     }
 
                     if( (!(afsaetningInput.getText().toString().equals("")) && !(salgsprisInput.getText().toString().equals(""))) && !(omsaetningNavnInput.getText().toString().equals("")) ){
-                        omsaetningElement.setOmsaetning( Integer.toString (( Integer.parseInt(afsaetningInput.getText().toString())  * ( Integer.parseInt(salgsprisInput.getText().toString() )) ) ));
+                        omsaetningElement.setOmsaetning( Long.toString (( Long.parseLong(afsaetningInput.getText().toString())  * ( Long.parseLong(salgsprisInput.getText().toString() )) ) ));
 
                     }
 
@@ -229,7 +229,7 @@ public class UdregnOmsaetning extends AppCompatActivity {
             int totalOmsaetning = 0;
 
             for (int i = 0; i < listeAfOmsaetning.size(); i++) {
-                totalOmsaetning += Integer.parseInt(listeAfOmsaetning.get(i)[3]);
+                totalOmsaetning += Long.parseLong(listeAfOmsaetning.get(i)[3]);
 
             }
 
@@ -239,7 +239,7 @@ public class UdregnOmsaetning extends AppCompatActivity {
             }
 
             table.setDataAdapter(new SimpleTableDataAdapter(this, listeAfOmsaetningMedEnheder));
-            udregnOmsaetningResultat.setText(Integer.toString(totalOmsaetning) + " kr");
+            udregnOmsaetningResultat.setText(Long.toString(totalOmsaetning) + " kr");
             model.setOmsaetning(totalOmsaetning);
 
             omsaetningNavnInput.setText("");
@@ -310,7 +310,7 @@ public class UdregnOmsaetning extends AppCompatActivity {
     public void opdaterTal(){
 
         if( (!(afsaetningInput.getText().toString().equals("")) && !(salgsprisInput.getText().toString().equals(""))) && !(omsaetningNavnInput.getText().toString().equals("")) ){
-            omsaetningElement.setOmsaetning( Integer.toString( ( Integer.parseInt(afsaetningInput.getText().toString()) * ( Integer.parseInt(salgsprisInput.getText().toString() )) )) );
+            omsaetningElement.setOmsaetning( Long.toString( ( Long.parseLong(afsaetningInput.getText().toString()) * ( Long.parseLong(salgsprisInput.getText().toString() )) )) );
         }
 
     }
