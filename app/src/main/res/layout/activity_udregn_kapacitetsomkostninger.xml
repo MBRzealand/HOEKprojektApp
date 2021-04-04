@@ -96,6 +96,14 @@
             app:layout_constraintVertical_bias="0.46" android:background="@drawable/round_button"
             android:scaleType="fitXY" android:onClick="addElementToTable"
             android:id="@+id/tilfoejTilKapacitetsomkostningKnap"/>
+    <Button
+            android:text="Godkend"
+            android:layout_width="425dp"
+            android:layout_height="wrap_content" android:id="@+id/godkendKapacitetsomkostningerKnap"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintHorizontal_bias="0.498" app:layout_constraintVertical_bias="0.95"
+            android:onClick="godkendKapacitetsomkostninger"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

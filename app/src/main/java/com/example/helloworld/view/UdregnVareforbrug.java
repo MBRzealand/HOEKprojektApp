@@ -7,9 +7,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.EditText;
-import android.widget.ImageButton;
-import android.widget.TextView;
+import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.example.helloworld.R;
@@ -38,8 +36,9 @@ public class UdregnVareforbrug extends AppCompatActivity {
     TextView vareforbrugResultatText;
 
     ImageButton vareforbrugImage;
-
     ImageButton tilfoejTilVareforbrugKnap;
+
+    Button godkendVareforbrugKnap;
 
 
 
@@ -69,6 +68,10 @@ public class UdregnVareforbrug extends AppCompatActivity {
         vareforbrugResultatText = findViewById(R.id.vareforbrugResultatText);
         vareforbrugImage = findViewById(R.id.vareforbrugImage);
 
+        godkendVareforbrugKnap = findViewById(R.id.godkendVareforbrugKnap);
+
+        godkendVareforbrugKnap.setVisibility(View.GONE);
+        godkendVareforbrugKnap.setEnabled(false);
 
         vareforbrugNavnInput.setVisibility(View.GONE);
         opkoebInput.setVisibility(View.GONE);
@@ -167,76 +170,77 @@ public class UdregnVareforbrug extends AppCompatActivity {
 
     public void tilbageFraUdregnVareforbrug(View view) {
 
-        if(listeAfVareforbrug.size() >0 ){
-
-            Intent intent = new Intent(this, AndroidView.class);
-
-            intent.putExtra("modelObject", model);
-
-            setResult(Activity.RESULT_OK,intent);
-
-        }
-
         finish();
 
     }
 
     public void addElementToTable(View view) {
 
-        String [] stringVareforbrugElement = new String[]{
-                vareforbrugElement.getVarenavn(),
-                vareforbrugElement.getOpkoeb(),
-                vareforbrugElement.getKoebsPris(),
-                vareforbrugElement.getVareforbrug()
-        };
+        if( (!vareforbrugNavnInput.getText().toString().equals("") && !opkoebInput.getText().toString().equals("")) && !koebsprisInput.getText().toString().equals("") ) {
 
-        listeAfVareforbrug.add(stringVareforbrugElement);
+            String[] stringVareforbrugElement = new String[]{
+                    vareforbrugElement.getVarenavn(),
+                    vareforbrugElement.getOpkoeb(),
+                    vareforbrugElement.getKoebsPris(),
+                    vareforbrugElement.getVareforbrug()
+            };
 
-
-
-        String [] stringVareforbrugElementMedEnheder = new String[]{
-                vareforbrugElement.getVarenavn(),
-                vareforbrugElement.getOpkoeb() + " stk",
-                vareforbrugElement.getKoebsPris() + " kr",
-                vareforbrugElement.getVareforbrug() + " kr"
-        };
-
-        listeAfVareforbrugMedEnheder.add(stringVareforbrugElementMedEnheder);
+            listeAfVareforbrug.add(stringVareforbrugElement);
 
 
-        int totalVareforbrug = 0;
+            String[] stringVareforbrugElementMedEnheder = new String[]{
+                    vareforbrugElement.getVarenavn(),
+                    vareforbrugElement.getOpkoeb() + " stk",
+                    vareforbrugElement.getKoebsPris() + " kr",
+                    vareforbrugElement.getVareforbrug() + " kr"
+            };
 
-        for (int i = 0; i < listeAfVareforbrug.size(); i++) {
-            totalVareforbrug += Integer.parseInt(listeAfVareforbrug.get(i)[3]);
+            listeAfVareforbrugMedEnheder.add(stringVareforbrugElementMedEnheder);
+
+
+            int totalVareforbrug = 0;
+
+            for (int i = 0; i < listeAfVareforbrug.size(); i++) {
+                totalVareforbrug += Integer.parseInt(listeAfVareforbrug.get(i)[3]);
+
+            }
+
+            if (listeAfVareforbrug.size() > 0) {
+                udregnVareforbrugResultat.setVisibility(View.VISIBLE);
+                vareforbrugResultatText.setVisibility(View.VISIBLE);
+            }
+
+            table2.setDataAdapter(new SimpleTableDataAdapter(this, listeAfVareforbrugMedEnheder));
+            udregnVareforbrugResultat.setText(Integer.toString(totalVareforbrug) + " kr");
+            model.setVareforbrug(totalVareforbrug);
+
+            vareforbrugNavnInput.setText("");
+            koebsprisInput.setText("");
+            opkoebInput.setText("");
+
+            vareforbrugNavnInput.setVisibility(View.GONE);
+            opkoebInput.setVisibility(View.GONE);
+            koebsprisInput.setVisibility(View.GONE);
+            tilfoejTilVareforbrugKnap.setVisibility(View.GONE);
+            vareforbrugNavnInput.setEnabled(false);
+            opkoebInput.setEnabled(false);
+            koebsprisInput.setEnabled(false);
+            tilfoejTilVareforbrugKnap.setEnabled(false);
+
+            vareforbrugImage.setVisibility(View.VISIBLE);
+            vareforbrugText.setVisibility(View.VISIBLE);
+            vareforbrugImage.setEnabled(true);
+            vareforbrugText.setEnabled(true);
+
+            godkendVareforbrugKnap.setVisibility(View.VISIBLE);
+            godkendVareforbrugKnap.setEnabled(true);
+
+        } else {
+
+            Toast.makeText(getApplicationContext(), "Udfyld venligst alle felter", Toast.LENGTH_SHORT).show();
 
         }
 
-        if(listeAfVareforbrug.size() > 0){
-            udregnVareforbrugResultat.setVisibility(View.VISIBLE);
-            vareforbrugResultatText.setVisibility(View.VISIBLE);
-        }
-
-        table2.setDataAdapter(new SimpleTableDataAdapter(this,  listeAfVareforbrugMedEnheder));
-        udregnVareforbrugResultat.setText(Integer.toString(totalVareforbrug) + " kr");
-        model.setVareforbrug(totalVareforbrug);
-
-        vareforbrugNavnInput.setText("");
-        koebsprisInput.setText("");
-        opkoebInput.setText("");
-
-        vareforbrugNavnInput.setVisibility(View.GONE);
-        opkoebInput.setVisibility(View.GONE);
-        koebsprisInput.setVisibility(View.GONE);
-        tilfoejTilVareforbrugKnap.setVisibility(View.GONE);
-        vareforbrugNavnInput.setEnabled(false);
-        opkoebInput.setEnabled(false);
-        koebsprisInput.setEnabled(false);
-        tilfoejTilVareforbrugKnap.setEnabled(false);
-
-        vareforbrugImage.setVisibility(View.VISIBLE);
-        vareforbrugText.setVisibility(View.VISIBLE);
-        vareforbrugImage.setEnabled(true);
-        vareforbrugText.setEnabled(true);
 
     }
 
@@ -255,5 +259,21 @@ public class UdregnVareforbrug extends AppCompatActivity {
         vareforbrugText.setVisibility(View.GONE);
         vareforbrugImage.setEnabled(false);
         vareforbrugText.setEnabled(false);
+    }
+
+    public void godkendVareforbrug(View view) {
+
+        if(listeAfVareforbrug.size() >0 ){
+
+            Intent intent = new Intent(this, AndroidView.class);
+
+            intent.putExtra("modelObject", model);
+
+            setResult(Activity.RESULT_OK,intent);
+
+        }
+
+        finish();
+
     }
 }

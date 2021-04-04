@@ -8,6 +8,14 @@
         tools:context=".view.UdregnVareforbrug">
 
 
+    <Button
+            android:text="Godkend"
+            android:layout_width="425dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintHorizontal_bias="0.498" app:layout_constraintVertical_bias="0.95"
+            android:onClick="godkendVareforbrug" android:id="@+id/godkendVareforbrugKnap"/>
     <ImageButton
             android:layout_width="25dp"
             android:layout_height="25dp" app:srcCompat="@drawable/add_medium_grey"
@@ -61,7 +69,7 @@
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintHorizontal_bias="0.44" app:layout_constraintVertical_bias="0.46"
-            android:textSize="14sp" android:hint="opkøb" android:id="@+id/opkoebInput"/>
+            android:textSize="14sp" android:hint="opkøb (stk)" android:id="@+id/opkoebInput"/>
     <EditText
             android:imeOptions="actionDone"
             android:layout_width="110dp"
@@ -71,7 +79,7 @@
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintHorizontal_bias="0.80" app:layout_constraintVertical_bias="0.46"
-            android:textSize="14sp" android:hint="købspris" android:id="@+id/koebsprisInput"/>
+            android:textSize="14sp" android:hint="købspris (kr)" android:id="@+id/koebsprisInput"/>
     <TextView
             android:text="Tilføj ny vare til vareforbruget"
             android:layout_width="wrap_content"

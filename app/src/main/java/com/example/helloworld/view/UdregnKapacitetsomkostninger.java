@@ -7,9 +7,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.EditText;
-import android.widget.ImageButton;
-import android.widget.TextView;
+import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.example.helloworld.R;
@@ -37,8 +35,9 @@ public class UdregnKapacitetsomkostninger extends AppCompatActivity {
     TextView kapacitetsomkostningResultatText;
 
     ImageButton kapacitetsomkostningImage;
-
     ImageButton tilfoejTilKapacitetsomkostningKnap;
+
+    Button godkendKapacitetsomkostningerKnap;
 
 
     List<String[]> listeAfKapacitetsomkostninger;
@@ -64,6 +63,11 @@ public class UdregnKapacitetsomkostninger extends AppCompatActivity {
         kapacitetsomkostningResultatText = findViewById(R.id.kapacitetsomkostningResultatText);
         kapacitetsomkostningImage = findViewById(R.id.kapacitetsomkostningImage);
 
+        godkendKapacitetsomkostningerKnap = findViewById(R.id.godkendKapacitetsomkostningerKnap);
+
+
+        godkendKapacitetsomkostningerKnap.setVisibility(View.GONE);
+        godkendKapacitetsomkostningerKnap.setEnabled(false);
 
         kapacitetsomkostningNavnInput.setVisibility(View.GONE);
         kapacitetsomkostningPrisInput.setVisibility(View.GONE);
@@ -138,69 +142,70 @@ public class UdregnKapacitetsomkostninger extends AppCompatActivity {
 
     public void tilbageFraUdregnKapacitetsomkostninger(View view) {
 
-        if(listeAfKapacitetsomkostninger.size() >0 ){
-
-            Intent intent = new Intent(this, AndroidView.class);
-
-            intent.putExtra("modelObject", model);
-
-            setResult(Activity.RESULT_OK,intent);
-
-        }
-
         finish();
 
     }
 
     public void addElementToTable(View view) {
 
-        String [] stringKapacitetsomkostningElement = new String[]{
-                kapacitetsomkostningElement.getKapacitetsomkostningNavn(),
-                kapacitetsomkostningElement.getKapacitetsomkostningPris(),
-        };
-
-        listeAfKapacitetsomkostninger.add(stringKapacitetsomkostningElement);
+        if( !kapacitetsomkostningNavnInput.getText().toString().equals("") && !kapacitetsomkostningPrisInput.getText().toString().equals("") ) {
 
 
+            String[] stringKapacitetsomkostningElement = new String[]{
+                    kapacitetsomkostningElement.getKapacitetsomkostningNavn(),
+                    kapacitetsomkostningElement.getKapacitetsomkostningPris(),
+            };
 
-        String [] stringKapacitetsomkostningElementMedEnheder = new String[]{
-                kapacitetsomkostningElement.getKapacitetsomkostningNavn(),
-                kapacitetsomkostningElement.getKapacitetsomkostningPris() + " kr"
-        };
-
-        listeAfKapacitetsomkostningerMedEnheder.add(stringKapacitetsomkostningElementMedEnheder);
+            listeAfKapacitetsomkostninger.add(stringKapacitetsomkostningElement);
 
 
-        int totalKapacitetsomkostninger = 0;
+            String[] stringKapacitetsomkostningElementMedEnheder = new String[]{
+                    kapacitetsomkostningElement.getKapacitetsomkostningNavn(),
+                    kapacitetsomkostningElement.getKapacitetsomkostningPris() + " kr"
+            };
 
-        for (int i = 0; i < listeAfKapacitetsomkostninger.size(); i++) {
-            totalKapacitetsomkostninger += Integer.parseInt(listeAfKapacitetsomkostninger.get(i)[1]);
+            listeAfKapacitetsomkostningerMedEnheder.add(stringKapacitetsomkostningElementMedEnheder);
+
+
+            int totalKapacitetsomkostninger = 0;
+
+            for (int i = 0; i < listeAfKapacitetsomkostninger.size(); i++) {
+                totalKapacitetsomkostninger += Integer.parseInt(listeAfKapacitetsomkostninger.get(i)[1]);
+
+            }
+
+            if (listeAfKapacitetsomkostninger.size() > 0) {
+                udregnKapacitetsomkostningResultat.setVisibility(View.VISIBLE);
+                kapacitetsomkostningResultatText.setVisibility(View.VISIBLE);
+            }
+
+            table3.setDataAdapter(new SimpleTableDataAdapter(this, listeAfKapacitetsomkostningerMedEnheder));
+            udregnKapacitetsomkostningResultat.setText(Integer.toString(totalKapacitetsomkostninger) + " kr");
+            model.setOevrigeKapacitetsomkostninger(totalKapacitetsomkostninger);
+
+            kapacitetsomkostningNavnInput.setText("");
+            kapacitetsomkostningPrisInput.setText("");
+
+            kapacitetsomkostningNavnInput.setVisibility(View.GONE);
+            kapacitetsomkostningPrisInput.setVisibility(View.GONE);
+            tilfoejTilKapacitetsomkostningKnap.setVisibility(View.GONE);
+            kapacitetsomkostningNavnInput.setEnabled(false);
+            kapacitetsomkostningPrisInput.setEnabled(false);
+            tilfoejTilKapacitetsomkostningKnap.setEnabled(false);
+
+            kapacitetsomkostningImage.setVisibility(View.VISIBLE);
+            kapacitetsomkostningText.setVisibility(View.VISIBLE);
+            kapacitetsomkostningImage.setEnabled(true);
+            kapacitetsomkostningText.setEnabled(true);
+
+            godkendKapacitetsomkostningerKnap.setVisibility(View.VISIBLE);
+            godkendKapacitetsomkostningerKnap.setEnabled(true);
+
+        } else {
+
+            Toast.makeText(getApplicationContext(), "Udfyld venligst alle felter", Toast.LENGTH_SHORT).show();
 
         }
-
-        if(listeAfKapacitetsomkostninger.size() > 0){
-            udregnKapacitetsomkostningResultat.setVisibility(View.VISIBLE);
-            kapacitetsomkostningResultatText.setVisibility(View.VISIBLE);
-        }
-
-        table3.setDataAdapter(new SimpleTableDataAdapter(this,  listeAfKapacitetsomkostningerMedEnheder));
-        udregnKapacitetsomkostningResultat.setText(Integer.toString(totalKapacitetsomkostninger) + " kr");
-        model.setOevrigeKapacitetsomkostninger(totalKapacitetsomkostninger);
-
-        kapacitetsomkostningNavnInput.setText("");
-        kapacitetsomkostningPrisInput.setText("");
-
-        kapacitetsomkostningNavnInput.setVisibility(View.GONE);
-        kapacitetsomkostningPrisInput.setVisibility(View.GONE);
-        tilfoejTilKapacitetsomkostningKnap.setVisibility(View.GONE);
-        kapacitetsomkostningNavnInput.setEnabled(false);
-        kapacitetsomkostningPrisInput.setEnabled(false);
-        tilfoejTilKapacitetsomkostningKnap.setEnabled(false);
-
-        kapacitetsomkostningImage.setVisibility(View.VISIBLE);
-        kapacitetsomkostningText.setVisibility(View.VISIBLE);
-        kapacitetsomkostningImage.setEnabled(true);
-        kapacitetsomkostningText.setEnabled(true);
 
     }
 
@@ -217,6 +222,22 @@ public class UdregnKapacitetsomkostninger extends AppCompatActivity {
         kapacitetsomkostningText.setVisibility(View.GONE);
         kapacitetsomkostningImage.setEnabled(false);
         kapacitetsomkostningText.setEnabled(false);
+
+    }
+
+    public void godkendKapacitetsomkostninger(View view) {
+
+        if(listeAfKapacitetsomkostninger.size() >0 ){
+
+            Intent intent = new Intent(this, AndroidView.class);
+
+            intent.putExtra("modelObject", model);
+
+            setResult(Activity.RESULT_OK,intent);
+
+        }
+
+        finish();
 
     }
 }

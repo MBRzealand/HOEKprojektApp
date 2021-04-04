@@ -8,7 +8,14 @@
         tools:context=".view.UdregnOmsaetning">
 
 
-
+    <Button
+            android:text="Godkend"
+            android:layout_width="425dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintHorizontal_bias="0.498" app:layout_constraintVertical_bias="0.95"
+            android:onClick="godkendOmsaetning" android:id="@+id/godkendOmsaetningKnap"/>
     <ImageButton
             android:layout_width="25dp"
             android:layout_height="25dp" app:srcCompat="@drawable/add_medium_grey"
@@ -65,7 +72,7 @@
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintHorizontal_bias="0.44" app:layout_constraintVertical_bias="0.46"
-            android:textSize="14sp" android:hint="afsætning"/>
+            android:textSize="14sp" android:hint="afsætning (stk)"/>
     <EditText
             android:imeOptions="actionDone"
             android:layout_width="110dp"
@@ -76,7 +83,7 @@
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintHorizontal_bias="0.80" app:layout_constraintVertical_bias="0.46"
-            android:textSize="14sp" android:hint="salgspris"/>
+            android:textSize="14sp" android:hint="salgspris (kr)"/>
     <TextView
             android:text="Tilføj ny vare til omsætningen"
             android:layout_width="wrap_content"

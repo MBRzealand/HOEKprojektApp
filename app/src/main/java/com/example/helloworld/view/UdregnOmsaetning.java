@@ -35,10 +35,9 @@ public class UdregnOmsaetning extends AppCompatActivity {
     TextView omsaetningResultatText;
 
     ImageButton omsaetningImage;
-
     ImageButton tilfoejTilOmsaetningKnap;
 
-
+    Button godkendOmsaetningKnap;
 
 
     List<String[]> listeAfOmsaetning;
@@ -65,6 +64,11 @@ public class UdregnOmsaetning extends AppCompatActivity {
         omsaetningResultatText = findViewById(R.id.omsaetningResultatText);
         omsaetningImage = findViewById(R.id.omsaetningImage);
 
+        godkendOmsaetningKnap = findViewById(R.id.godkendOmsaetningKnap);
+
+
+        godkendOmsaetningKnap.setVisibility(View.GONE);
+        godkendOmsaetningKnap.setEnabled(false);
 
         omsaetningNavnInput.setVisibility(View.GONE);
         afsaetningInput.setVisibility(View.GONE);
@@ -165,76 +169,76 @@ public class UdregnOmsaetning extends AppCompatActivity {
 
     public void tilbageFraUdregnOmsaetning(View view) {
 
-        if(listeAfOmsaetning.size() >0 ){
-
-            Intent intent = new Intent(this, AndroidView.class);
-
-            intent.putExtra("modelObject", model);
-
-            setResult(Activity.RESULT_OK,intent);
-
-        }
-
         finish();
 
     }
 
     public void addElementToTable(View view) {
 
-        String [] stringOmsaetningsElement = new String[]{
-                omsaetningElement.getVarenavn(),
-                omsaetningElement.getAfsaetning(),
-                omsaetningElement.getSalgspris(),
-                omsaetningElement.getOmsaetning()
-        };
+        if( (!omsaetningNavnInput.getText().toString().equals("") && !salgsprisInput.getText().toString().equals("")) && !afsaetningInput.getText().toString().equals("") ) {
 
-        listeAfOmsaetning.add(stringOmsaetningsElement);
+            String[] stringOmsaetningsElement = new String[]{
+                    omsaetningElement.getVarenavn(),
+                    omsaetningElement.getAfsaetning(),
+                    omsaetningElement.getSalgspris(),
+                    omsaetningElement.getOmsaetning()
+            };
 
-
-
-        String [] stringOmsaetningsElementMedEnheder = new String[]{
-                omsaetningElement.getVarenavn(),
-                omsaetningElement.getAfsaetning() + " stk",
-                omsaetningElement.getSalgspris() + " kr",
-                omsaetningElement.getOmsaetning() + " kr"
-        };
-
-        listeAfOmsaetningMedEnheder.add(stringOmsaetningsElementMedEnheder);
+            listeAfOmsaetning.add(stringOmsaetningsElement);
 
 
-        int totalOmsaetning = 0;
+            String[] stringOmsaetningsElementMedEnheder = new String[]{
+                    omsaetningElement.getVarenavn(),
+                    omsaetningElement.getAfsaetning() + " stk",
+                    omsaetningElement.getSalgspris() + " kr",
+                    omsaetningElement.getOmsaetning() + " kr"
+            };
 
-        for (int i = 0; i < listeAfOmsaetning.size(); i++) {
-            totalOmsaetning += Integer.parseInt(listeAfOmsaetning.get(i)[3]);
+            listeAfOmsaetningMedEnheder.add(stringOmsaetningsElementMedEnheder);
+
+
+            int totalOmsaetning = 0;
+
+            for (int i = 0; i < listeAfOmsaetning.size(); i++) {
+                totalOmsaetning += Integer.parseInt(listeAfOmsaetning.get(i)[3]);
+
+            }
+
+            if (listeAfOmsaetning.size() > 0) {
+                udregnOmsaetningResultat.setVisibility(View.VISIBLE);
+                omsaetningResultatText.setVisibility(View.VISIBLE);
+            }
+
+            table.setDataAdapter(new SimpleTableDataAdapter(this, listeAfOmsaetningMedEnheder));
+            udregnOmsaetningResultat.setText(Integer.toString(totalOmsaetning) + " kr");
+            model.setOmsaetning(totalOmsaetning);
+
+            omsaetningNavnInput.setText("");
+            salgsprisInput.setText("");
+            afsaetningInput.setText("");
+
+            omsaetningNavnInput.setVisibility(View.GONE);
+            afsaetningInput.setVisibility(View.GONE);
+            salgsprisInput.setVisibility(View.GONE);
+            tilfoejTilOmsaetningKnap.setVisibility(View.GONE);
+            omsaetningNavnInput.setEnabled(false);
+            afsaetningInput.setEnabled(false);
+            salgsprisInput.setEnabled(false);
+            tilfoejTilOmsaetningKnap.setEnabled(false);
+
+            omsaetningImage.setVisibility(View.VISIBLE);
+            omsaetningText.setVisibility(View.VISIBLE);
+            omsaetningImage.setEnabled(true);
+            omsaetningText.setEnabled(true);
+
+            godkendOmsaetningKnap.setVisibility(View.VISIBLE);
+            godkendOmsaetningKnap.setEnabled(true);
+
+        } else {
+
+            Toast.makeText(getApplicationContext(), "Udfyld venligst alle felter", Toast.LENGTH_SHORT).show();
 
         }
-
-        if(listeAfOmsaetning.size() > 0){
-            udregnOmsaetningResultat.setVisibility(View.VISIBLE);
-            omsaetningResultatText.setVisibility(View.VISIBLE);
-        }
-
-        table.setDataAdapter(new SimpleTableDataAdapter(this,  listeAfOmsaetningMedEnheder));
-        udregnOmsaetningResultat.setText(Integer.toString(totalOmsaetning) + " kr");
-        model.setOmsaetning(totalOmsaetning);
-
-        omsaetningNavnInput.setText("");
-        salgsprisInput.setText("");
-        afsaetningInput.setText("");
-
-        omsaetningNavnInput.setVisibility(View.GONE);
-        afsaetningInput.setVisibility(View.GONE);
-        salgsprisInput.setVisibility(View.GONE);
-        tilfoejTilOmsaetningKnap.setVisibility(View.GONE);
-        omsaetningNavnInput.setEnabled(false);
-        afsaetningInput.setEnabled(false);
-        salgsprisInput.setEnabled(false);
-        tilfoejTilOmsaetningKnap.setEnabled(false);
-
-        omsaetningImage.setVisibility(View.VISIBLE);
-        omsaetningText.setVisibility(View.VISIBLE);
-        omsaetningImage.setEnabled(true);
-        omsaetningText.setEnabled(true);
 
 
     }
@@ -257,4 +261,22 @@ public class UdregnOmsaetning extends AppCompatActivity {
         omsaetningText.setEnabled(false);
 
     }
+
+    public void godkendOmsaetning(View view) {
+
+        if(listeAfOmsaetning.size() >0 ){
+
+            Intent intent = new Intent(this, AndroidView.class);
+
+            intent.putExtra("modelObject", model);
+
+            setResult(Activity.RESULT_OK,intent);
+
+        }
+
+        finish();
+
+    }
+
+
 }
