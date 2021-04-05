@@ -299,6 +299,16 @@ public class AndroidView extends AppCompatActivity {
 
     }
 
+    public void goToUdregnAfskrivninger(View view) {
+
+        Intent intent = new Intent(this, UdregnAfskrivninger.class);
+
+        intent.putExtra("modelObject", model);
+
+        startActivityForResult(intent,911);
+
+    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
