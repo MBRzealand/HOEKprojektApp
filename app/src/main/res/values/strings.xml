@@ -17,11 +17,8 @@
     <string name="omkostningspris">omkostningspris</string>
     <string name="tilf_j_ny_kapacitetsomkostning">Tilføj ny Kapacitetsomkostning</string>
     <string name="samlede_vrige_nkapacitetesomkostninger">Samlede Øvrige \nKapacitetesomkostninger:</string>
-    <string name="godkend">Godkend</string>
     <string name="udregn_vrige_nkapacitetsomkostninger">Udregn Øvrige \nKapacitetsomkostninger</string>
-    <string name="godkend">Godkend</string>
     <string name="udregn_oms_tning">Udregn Omsætning</string>
-    <string name="varenavn">varenavn</string>
     <string name="afs_tning_stk">afsætning (stk)</string>
     <string name="salgspris_kr">salgspris (kr)</string>
     <string name="tilf_j_ny_vare_til_oms_tningen">Tilføj ny vare til omsætningen</string>
