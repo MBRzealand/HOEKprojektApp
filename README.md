@@ -15,8 +15,8 @@ Udregn omsætning featuren giver mulighed for at tilføje alle ens omsætninger 
 
 Udregn vareforbrug featuren fungerer komplet identisk med udregn omsætning featuren.
 
-<img src="https://i.imgur.com/CZ8DdL5.png" height="550" width="240"> <img src="https://i.imgur.com/Q7vUFEW.png" height="550" width="240"> 
-<img src="https://i.imgur.com/fUv2AiV.png" height="550" width="240"> <img src="https://i.imgur.com/S81kV9j.png" height="550" width="240"> 
+<img src="https://i.imgur.com/CZ8DdL5.png" height="550" width="240"> <img src="https://i.imgur.com/fUv2AiV.png" height="550" width="240">
+<img src="https://i.imgur.com/S81kV9j.png" height="550" width="240"> 
 
 ### Udregnelse af tomme felter
 
@@ -28,8 +28,8 @@ Hvis alle felter over et tomt felt er udfyldt, vil programmet selv udfylde det t
 
 Udregn øvrige kapacitetsomkostninger featuren er identisk med både udregn omsætning og udregn vareforbrug featuresne, dog består featuren kun af 2 inputfelter og en tabel med 2 kolonner, modsat de andre med 3 inputfelter og 4 kolonner.
 
-<img src="https://i.imgur.com/o9ckGJ3.png" height="550" width="240"> <img src="https://i.imgur.com/RGm4A3s.png" height="550" width="240"> 
-<img src="https://i.imgur.com/rh0r6zv.png" height="550" width="240"> <img src="https://i.imgur.com/RLpXzmN.png" height="550" width="240"> 
+<img src="https://i.imgur.com/o9ckGJ3.png" height="550" width="240"> <img src="https://i.imgur.com/rh0r6zv.png" height="550" width="240">
+<img src="https://i.imgur.com/RLpXzmN.png" height="550" width="240"> 
 
 ### Udregn Resultat
 
