@@ -50,7 +50,7 @@
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintHorizontal_bias="0.08" app:layout_constraintVertical_bias="0.46"
             android:textSize="14sp" android:hint="@string/omkostningsnavn" android:maxLines="1"
-            android:id="@+id/kapacitetsomkostningNavnInput"/>
+            android:id="@+id/kapacitetsomkostningNavnInput" android:backgroundTint="#000000"/>
 
     <EditText
             android:imeOptions="actionDone"
@@ -61,7 +61,8 @@
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintHorizontal_bias="0.70" app:layout_constraintVertical_bias="0.46"
-            android:textSize="14sp" android:hint="@string/omkostningspris" android:id="@+id/kapacitetsomkostningPrisInput"/>
+            android:textSize="14sp" android:hint="@string/omkostningspris"
+            android:id="@+id/kapacitetsomkostningPrisInput" android:backgroundTint="#000000"/>
     <TextView
             android:text="@string/tilf_j_ny_kapacitetsomkostning"
             android:layout_width="wrap_content"

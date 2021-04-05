@@ -58,7 +58,7 @@
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintHorizontal_bias="0.08" app:layout_constraintVertical_bias="0.46"
             android:textSize="14sp" android:hint="@string/varenavn" android:maxLines="1"
-            android:id="@+id/vareforbrugNavnInput"/>
+            android:id="@+id/vareforbrugNavnInput" android:backgroundTint="#000000"/>
 
     <EditText
             android:imeOptions="actionNext"
@@ -69,7 +69,8 @@
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintHorizontal_bias="0.44" app:layout_constraintVertical_bias="0.46"
-            android:textSize="14sp" android:hint="@string/opk_b_stk" android:id="@+id/opkoebInput"/>
+            android:textSize="14sp" android:hint="@string/opk_b_stk" android:id="@+id/opkoebInput"
+            android:backgroundTint="#000000"/>
     <EditText
             android:imeOptions="actionDone"
             android:layout_width="110dp"
@@ -79,7 +80,8 @@
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintHorizontal_bias="0.80" app:layout_constraintVertical_bias="0.46"
-            android:textSize="14sp" android:hint="@string/k_bspris_kr" android:id="@+id/koebsprisInput"/>
+            android:textSize="14sp" android:hint="@string/k_bspris_kr" android:id="@+id/koebsprisInput"
+            android:backgroundTint="#000000"/>
     <TextView
             android:text="@string/tilf_j_ny_vare_til_vareforbruget"
             android:layout_width="wrap_content"

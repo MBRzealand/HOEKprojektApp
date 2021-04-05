@@ -63,7 +63,7 @@
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.555"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.8"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"
-            android:textAlignment="viewEnd"/>
+            android:textAlignment="viewEnd" android:backgroundTint="#000000"/>
     <EditText
             android:layout_width="120dp"
             android:layout_height="40dp"
@@ -74,7 +74,7 @@
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.45"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.8"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"
-            android:textAlignment="viewEnd"/>
+            android:textAlignment="viewEnd" android:backgroundTint="#000000"/>
     <EditText
             android:layout_width="120dp"
             android:layout_height="40dp"
@@ -85,7 +85,7 @@
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.345"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.8"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"
-            android:textAlignment="viewEnd"/>
+            android:textAlignment="viewEnd" android:backgroundTint="#000000"/>
     <TextView
             android:text="@string/oms_tning"
             android:layout_width="wrap_content"
@@ -221,7 +221,8 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.09"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintHorizontal_bias="0.8" android:textAlignment="viewEnd"/>
+            app:layout_constraintHorizontal_bias="0.8" android:textAlignment="viewEnd"
+            android:backgroundTint="#000000"/>
     <EditText
             android:layout_width="120dp"
             android:layout_height="40dp"
@@ -232,7 +233,7 @@
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.14"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.8"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"
-            android:textAlignment="viewEnd"/>
+            android:textAlignment="viewEnd" android:backgroundTint="#000000"/>
     <EditText
             android:layout_width="120dp"
             android:layout_height="40dp"
@@ -243,7 +244,7 @@
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.245"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.8"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"
-            android:textAlignment="viewEnd"/>
+            android:textAlignment="viewEnd" android:backgroundTint="#000000"/>
     <TextView
             android:layout_width="220dp"
             android:layout_height="wrap_content" android:id="@+id/resultat"

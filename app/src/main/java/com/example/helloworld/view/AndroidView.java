@@ -3,6 +3,8 @@ package com.example.helloworld.view;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
@@ -65,6 +67,7 @@ public class AndroidView extends AppCompatActivity {
                 if (hasFocus){
 
                     opdaterTal();
+                    omsaetning.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#00DAC5")));
 
                 }
 
@@ -77,6 +80,7 @@ public class AndroidView extends AppCompatActivity {
                     }
 
                     opdaterTal();
+                    omsaetning.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#000000")));
 
                 }
 
@@ -92,6 +96,7 @@ public class AndroidView extends AppCompatActivity {
                 if(hasFocus) {
 
                     opdaterTal();
+                    vareforbrug.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#00DAC5")));
 
                 }
 
@@ -105,6 +110,7 @@ public class AndroidView extends AppCompatActivity {
                     }
 
                     opdaterTal();
+                    vareforbrug.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#000000")));
 
                 }
 
@@ -120,6 +126,7 @@ public class AndroidView extends AppCompatActivity {
                 if(hasFocus) {
 
                     opdaterTal();
+                    markedsfoeringsomkostninger.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#00DAC5")));
 
                 }
 
@@ -132,6 +139,7 @@ public class AndroidView extends AppCompatActivity {
                     }
 
                     opdaterTal();
+                    markedsfoeringsomkostninger.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#000000")));
 
                 }
 
@@ -148,6 +156,7 @@ public class AndroidView extends AppCompatActivity {
                 if(hasFocus) {
 
                     opdaterTal();
+                    oevrigeKapacitetsomkostninger.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#00DAC5")));
 
                 }
 
@@ -160,6 +169,7 @@ public class AndroidView extends AppCompatActivity {
                     }
 
                     opdaterTal();
+                    oevrigeKapacitetsomkostninger.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#000000")));
 
                 }
 
@@ -176,6 +186,7 @@ public class AndroidView extends AppCompatActivity {
                 if(hasFocus) {
 
                     opdaterTal();
+                    afskrivninger.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#00DAC5")));
 
                 }
 
@@ -188,6 +199,7 @@ public class AndroidView extends AppCompatActivity {
                     }
 
                     opdaterTal();
+                    afskrivninger.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#000000")));
 
                 }
 
@@ -203,6 +215,7 @@ public class AndroidView extends AppCompatActivity {
                 if(hasFocus) {
 
                     opdaterTal();
+                    renteomkostninger.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#00DAC5")));
 
                 }
 
@@ -217,6 +230,7 @@ public class AndroidView extends AppCompatActivity {
                     }
 
                     opdaterTal();
+                    renteomkostninger.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#000000")));
 
                 }
 
@@ -357,7 +371,6 @@ public class AndroidView extends AppCompatActivity {
                 break;
         }
     }
-
 
 
 

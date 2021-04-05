@@ -13,26 +13,29 @@
             android:layout_height="wrap_content"
             android:inputType="number"
             android:ems="10"
-            android:id="@+id/afsaetningInput2"
+            android:id="@+id/kostprisInput"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.528" app:layout_constraintVertical_bias="0.156"
-            android:textSize="14sp" android:hint="Scrapværdi"/>
+            app:layout_constraintHorizontal_bias="0.192" app:layout_constraintVertical_bias="0.152"
+            android:textSize="18sp" android:hint="Kostpris" android:maxLines="1" android:backgroundTint="#000000"
+            android:textAlignment="center"/>
     <EditText
-            android:nextFocusDown="@id/afsaetningInput"
+            android:imeOptions="actionNext"
             android:layout_width="110dp"
             android:layout_height="wrap_content"
-            android:inputType="text"
+            android:inputType="number"
             android:ems="10"
-            android:id="@+id/omsaetningNavnInput2"
+            android:id="@+id/scrapvaerdiInput"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.192" app:layout_constraintVertical_bias="0.156"
-            android:textSize="14sp" android:hint="Kostpris" android:maxLines="1"/>
+            app:layout_constraintHorizontal_bias="0.528" app:layout_constraintVertical_bias="0.152"
+            android:textSize="18sp" android:hint="Scrapværdi" android:backgroundTint="#000000"
+            android:textAlignment="center"/>
+
     <TextView
             android:text=")"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/textView14"
+            android:layout_height="wrap_content" android:id="@+id/p2"
             android:textColor="#000000"
             android:textSize="30sp" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
@@ -41,7 +44,7 @@
     <TextView
             android:text="-"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/textView15"
+            android:layout_height="wrap_content" android:id="@+id/m1"
             android:textColor="#000000"
             android:textSize="30sp" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
@@ -50,7 +53,7 @@
     <TextView
             android:text="("
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/textView18"
+            android:layout_height="wrap_content" android:id="@+id/p3"
             android:textColor="#000000"
             android:textSize="30sp" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
@@ -62,26 +65,28 @@
             android:layout_height="wrap_content"
             android:inputType="number"
             android:ems="10"
-            android:id="@+id/salgsprisInput2"
+            android:id="@+id/brugstidInput"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.94" app:layout_constraintVertical_bias="0.156"
-            android:textSize="14sp" android:hint="Brugstid"/>
+            app:layout_constraintHorizontal_bias="0.94" app:layout_constraintVertical_bias="0.152"
+            android:textSize="18sp" android:hint="Brugstid" android:backgroundTint="#000000"
+            android:textAlignment="center"/>
     <EditText
-            android:imeOptions="actionDone"
-            android:layout_width="140dp"
+            android:imeOptions="actionNext"
+            android:layout_width="170dp"
             android:layout_height="wrap_content"
             android:inputType="number"
             android:ems="10"
-            android:id="@+id/salgsprisInput3"
+            android:id="@+id/afskrivningsprocentInput"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.214" app:layout_constraintVertical_bias="0.312"
-            android:textSize="14sp" android:hint="Afskrivningsprocent"/>
+            app:layout_constraintHorizontal_bias="0.225" app:layout_constraintVertical_bias="0.312"
+            android:textSize="18sp" android:hint="Afskrivningsprocent" android:backgroundTint="#000000"
+            android:textAlignment="center"/>
     <TextView
             android:text="("
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/textView19"
+            android:layout_height="wrap_content" android:id="@+id/p5"
             android:textColor="#000000"
             android:textSize="30sp" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
@@ -90,55 +95,56 @@
     <TextView
             android:text=")"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/textView21"
+            android:layout_height="wrap_content" android:id="@+id/p6"
             android:textColor="#000000"
             android:textSize="30sp" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.452"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.51"
             app:layout_constraintVertical_bias="0.31"/>
     <TextView
             android:text="("
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/textView23"
+            android:layout_height="wrap_content" android:id="@+id/p7"
             android:textColor="#000000"
             android:textSize="30sp" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.533"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.59"
             app:layout_constraintVertical_bias="0.31"/>
     <TextView
             android:text="x"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/textView22"
+            android:layout_height="wrap_content" android:id="@+id/g1"
             android:textColor="#000000"
             android:textSize="24sp" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintVertical_bias="0.311" android:textStyle="bold"
-            app:layout_constraintHorizontal_bias="0.493"/>
+            app:layout_constraintHorizontal_bias="0.55"/>
     <EditText
-            android:imeOptions="actionNext"
-            android:layout_width="140dp"
+            android:imeOptions="actionDone"
+            android:layout_width="170dp"
             android:layout_height="wrap_content"
             android:inputType="number"
             android:ems="10"
-            android:id="@+id/afsaetningInput3"
+            android:id="@+id/bogfoertPrimovaerdiInput"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.774" app:layout_constraintVertical_bias="0.312"
-            android:textSize="14sp" android:hint="Bogført Primoværdi"/>
+            app:layout_constraintHorizontal_bias="0.93" app:layout_constraintVertical_bias="0.312"
+            android:textSize="18sp" android:hint="Bogført Primoværdi" android:backgroundTint="#000000"
+            android:textAlignment="center"/>
     <TextView
             android:text=")"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/textView24"
+            android:layout_height="wrap_content" android:id="@+id/p8"
             android:textColor="#000000"
             android:textSize="30sp" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.865"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.987"
             app:layout_constraintVertical_bias="0.31"/>
     <TextView
             android:text="/"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/textView16"
+            android:layout_height="wrap_content" android:id="@+id/d1"
             android:textColor="#000000"
             android:textSize="42sp" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
@@ -147,7 +153,7 @@
     <TextView
             android:text="("
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/textView12"
+            android:layout_height="wrap_content" android:id="@+id/p1"
             android:textColor="#000000"
             android:textSize="30sp" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
@@ -156,7 +162,7 @@
     <TextView
             android:text=")"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/textView17"
+            android:layout_height="wrap_content" android:id="@+id/p4"
             android:textColor="#000000"
             android:textSize="30sp" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"

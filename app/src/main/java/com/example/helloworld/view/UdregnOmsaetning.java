@@ -3,6 +3,8 @@ package com.example.helloworld.view;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
@@ -94,6 +96,7 @@ public class UdregnOmsaetning extends AppCompatActivity {
                 if(hasFocus) {
 
                     opdaterTal();
+                    omsaetningNavnInput.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#00DAC5")));
 
                 }
 
@@ -106,6 +109,7 @@ public class UdregnOmsaetning extends AppCompatActivity {
                     }
 
                     opdaterTal();
+                    omsaetningNavnInput.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#000000")));
 
                 }
 
@@ -122,6 +126,7 @@ public class UdregnOmsaetning extends AppCompatActivity {
                 if(hasFocus) {
 
                     opdaterTal();
+                    afsaetningInput.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#00DAC5")));
 
                 }
 
@@ -134,6 +139,7 @@ public class UdregnOmsaetning extends AppCompatActivity {
                     }
 
                     opdaterTal();
+                    afsaetningInput.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#000000")));
 
                 }
 
@@ -148,6 +154,7 @@ public class UdregnOmsaetning extends AppCompatActivity {
                 if(hasFocus) {
 
                     opdaterTal();
+                    salgsprisInput.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#00DAC5")));
 
                 }
 
@@ -165,6 +172,7 @@ public class UdregnOmsaetning extends AppCompatActivity {
                     }
 
                     opdaterTal();
+                    salgsprisInput.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#000000")));
 
                 }
 
