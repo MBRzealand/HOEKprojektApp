@@ -3,6 +3,7 @@ package com.example.helloworld.view;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
@@ -35,6 +36,9 @@ public class UdregnAfskrivninger extends AppCompatActivity {
     EditText afskrivningsprocentInput;
     EditText bogfoertPrimovaerdiInput;
 
+    Button godkendAfskrivningerKnap;
+    TextView AfskrivningResultatText;
+
 
 
 
@@ -65,6 +69,15 @@ public class UdregnAfskrivninger extends AppCompatActivity {
 
         afskrivningsprocentInput = findViewById(R.id.afskrivningsprocentInput);
         bogfoertPrimovaerdiInput = findViewById(R.id.bogfoertPrimovaerdiInput);
+
+        godkendAfskrivningerKnap = findViewById(R.id.godkendAfskrivningerKnap);
+        AfskrivningResultatText = findViewById(R.id.AfskrivningResultatText);
+
+        godkendAfskrivningerKnap.setVisibility(View.GONE);
+        AfskrivningResultatText.setVisibility(View.GONE);
+
+        godkendAfskrivningerKnap.setEnabled(false);
+        AfskrivningResultatText.setEnabled(false);
 
         lineaerAfskrivning.setChecked(true);
         turnOffVisibilityEquation2();
