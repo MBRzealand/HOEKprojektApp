@@ -1,5 +1,9 @@
 # HØK Projekt App
 
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/70659124/113584469-3a408880-962b-11eb-9ec1-611de254de1f.png" height="100" width="100" />
+</p>
+
 Det overordnede UI er ret simpelt, det indeholder nogle inputfelter man kan udfylde, nogle tomme felter der selv bliver udregnet og nogle plus ikoner hvis man vil gå til en dybere udregnings-feature:
 
 <img src="https://i.imgur.com/SOiA6yg.png" height="550" width="240">  
