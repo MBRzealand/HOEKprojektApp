@@ -2,7 +2,7 @@
 
 Det overordnede UI er ret simpelt, det indeholder nogle inputfelter man kan udfylde, nogle tomme felter der selv bliver udregnet og nogle plus ikoner hvis man vil gå til en dybere udregnings-feature:
 
-<img src="https://i.imgur.com/Tj8WVU8.png =250x100" height="550" width="240">  
+<img src="https://i.imgur.com/SOiA6yg.png" height="550" width="240">  
 
 ### Udregn Omsætning
 
@@ -22,7 +22,7 @@ Udregn vareforbrug featuren fungerer komplet identisk med udregn omsætning feat
 
 Hvis alle felter over et tomt felt er udfyldt, vil programmet selv udfylde det tomme felt, ligeledes ved ændring af en værdi i et inputfelt vil programmet opdatere alle relevante tal.
 
-<img src="https://i.imgur.com/FOcUpzy.png" height="550" width="240">
+<img src="https://i.imgur.com/ZeUFkVO.png" height="550" width="240">
 
 ### Udregn Øvrige Kapacitetsomkostninger
 
@@ -35,12 +35,12 @@ Udregn øvrige kapacitetsomkostninger featuren er identisk med både udregn oms�
 
 Hvis alle felter i programmet er udfyldt vil programmet undervejs også have udregnet de tomme felter, og til sidst udregne resultatet.
 
-<img src="https://i.imgur.com/KlwI3oE.png" height="550" width="240">
+<img src="https://i.imgur.com/OHUmTaF.png" height="550" width="240">
 
 
 # TODO
 
-- Tilføj "kr" som enhed til alle tal på main activity
+- <s>Tilføj "kr" som enhed til alle tal på main activity </s>
 - Tilføj "Udregnelse af Afskrivninger" feature
 - Tilføj "Vis fulde resultatopgørelse" feature
 - Tilføj "exporter til pdf/xlsx" feature
@@ -51,6 +51,7 @@ Hvis alle felter i programmet er udfyldt vil programmet undervejs også have udr
 - Gør det muligt at slette elementer fra tabellerne
 
 - Lav logo/icon til appen
+- Opdater README når TODO er færdig
 
 
 
