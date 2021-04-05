@@ -50,7 +50,7 @@ Hvis alle felter i programmet er udfyldt vil programmet undervejs også have udr
 - Gem tabellernes data i model-objektet så de kan tilgås igen hvis man vil ændre tal
 - Gør det muligt at slette elementer fra tabellerne
 
-- Lav logo/icon til appen
+- <s>Lav logo/icon til appen </s>
 - Opdater README når TODO er færdig
 
 
