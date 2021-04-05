@@ -35,6 +35,13 @@ Udregn øvrige kapacitetsomkostninger featuren er identisk med både udregn oms�
 <img src="https://i.imgur.com/o9ckGJ3.png" height="550" width="240"> <img src="https://i.imgur.com/rh0r6zv.png" height="550" width="240">
 <img src="https://i.imgur.com/RLpXzmN.png" height="550" width="240"> 
 
+### Udregn Afskrivninger
+
+Udregn afskrivninger featuren lader en skifte mellem "Lineær Afskrivning" og "Saldometoden" ved et tryk på en knap, derefter kan man udfylde den valgte metode og få udregnet de årlige afskrivninger som derefter kan godkendes og smides ind i resultatopgørelsen.
+
+<img src="https://i.imgur.com/rWFKtmV.png" height="550" width="240"> <img src="https://i.imgur.com/0pqmexh.png" height="550" width="240">
+
+
 ### Udregn Resultat
 
 Hvis alle felter i programmet er udfyldt vil programmet undervejs også have udregnet de tomme felter, og til sidst udregne resultatet.
