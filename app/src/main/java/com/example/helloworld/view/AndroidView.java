@@ -18,6 +18,7 @@ import com.example.helloworld.model.Model;
 
 public class AndroidView extends AppCompatActivity {
 
+
     Model model;
     InputMethodManager imm;
 
