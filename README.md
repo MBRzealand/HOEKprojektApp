@@ -8,8 +8,8 @@ Det overordnede UI er ret simpelt, det indeholder nogle inputfelter man kan udfy
 
 Udregn omsætning featuren giver mulighed for at tilføje alle ens omsætninger til en tabel, hvorefter den selv udregner den totale omsætning og smidder ind i resultatopgørelsen, funktionen giver en fejlbesked hvis brugeren ikke har udfyldt alle felterne, og har yderligere en masse convenience features, eksempelvis fjernelse af leading zeroes.  
 
-<img src="https://i.imgur.com/RmyfVsC.png" height="550" width="240"> <img src="https://i.imgur.com/CPegYJz.png" height="550" width="240"> 
-<img src="https://i.imgur.com/eOG2Q2C.png" height="550" width="240"> <img src="https://i.imgur.com/fTr2vJ1.png" height="550" width="240"> 
+<img src="https://i.imgur.com/RmyfVsC.png" height="550" width="240"> <img src="https://i.imgur.com/eOG2Q2C.png" height="550" width="240"> 
+<img src="https://i.imgur.com/fTr2vJ1.png" height="550" width="240"> 
 
 ### Udregn Vareforbrug
 
