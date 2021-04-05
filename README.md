@@ -51,6 +51,7 @@ Hvis alle felter i programmet er udfyldt vil programmet undervejs også have udr
 - Gør det muligt at slette elementer fra tabellerne
 
 - Lav logo/icon til appen
+- Opdater README når TODO er færdig
 
 
 
