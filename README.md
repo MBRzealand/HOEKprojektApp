@@ -22,7 +22,7 @@ Udregn vareforbrug featuren fungerer komplet identisk med udregn omsætning feat
 
 Hvis alle felter over et tomt felt er udfyldt, vil programmet selv udfylde det tomme felt, ligeledes ved ændring af en værdi i et inputfelt vil programmet opdatere alle relevante tal.
 
-<img src="https://i.imgur.com/FOcUpzy.png" height="550" width="240">
+<img src="https://i.imgur.com/ZeUFkVO.png" height="550" width="240">
 
 ### Udregn Øvrige Kapacitetsomkostninger
 
