@@ -130,7 +130,7 @@ public class UdregnOmsaetning extends AppCompatActivity {
                         afsaetningInput.setText(Long.toString(0));
                         omsaetningElement.setAfsaetning(Long.toString(0));
                     } else {
-                        omsaetningElement.setAfsaetning(afsaetningInput.getText().toString());
+                        omsaetningElement.setAfsaetning(Long.toString(Long.parseLong(afsaetningInput.getText().toString())));
                     }
 
                     opdaterTal();

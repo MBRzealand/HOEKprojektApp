@@ -133,7 +133,7 @@ public class UdregnVareforbrug extends AppCompatActivity {
                         opkoebInput.setText(Long.toString(0));
                         vareforbrugElement.setOpkoeb(Long.toString(0));
                     } else {
-                        vareforbrugElement.setOpkoeb(opkoebInput.getText().toString());
+                        vareforbrugElement.setOpkoeb(Long.toString(Long.parseLong(opkoebInput.getText().toString())));
                     }
 
                     opdaterTal();
