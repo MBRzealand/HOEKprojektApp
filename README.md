@@ -2,7 +2,7 @@
 
 Det overordnede UI er ret simpelt, det indeholder nogle inputfelter man kan udfylde, nogle tomme felter der selv bliver udregnet og nogle plus ikoner hvis man vil gå til en dybere udregnings-feature:
 
-<img src="https://i.imgur.com/Tj8WVU8.png =250x100" height="550" width="240">  
+<img src="https://i.imgur.com/SOiA6yg.png" height="550" width="240">  
 
 ### Udregn Omsætning
 
@@ -35,7 +35,7 @@ Udregn øvrige kapacitetsomkostninger featuren er identisk med både udregn oms�
 
 Hvis alle felter i programmet er udfyldt vil programmet undervejs også have udregnet de tomme felter, og til sidst udregne resultatet.
 
-<img src="https://i.imgur.com/KlwI3oE.png" height="550" width="240">
+<img src="https://i.imgur.com/OHUmTaF.png" height="550" width="240">
 
 
 # TODO
