@@ -9,7 +9,7 @@
 
 
     <Button
-            android:text="Godkend"
+            android:text="@string/godkend"
             android:layout_width="425dp"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
@@ -34,7 +34,7 @@
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintHorizontal_bias="0.571"
             app:layout_constraintVertical_bias="0.112"/>
     <TextView
-            android:text="Udregn Omsætning"
+            android:text="@string/udregn_oms_tning"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/titel2"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
@@ -60,7 +60,7 @@
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintHorizontal_bias="0.08" app:layout_constraintVertical_bias="0.46"
-            android:textSize="14sp" android:hint="varenavn" android:maxLines="1"/>
+            android:textSize="14sp" android:hint="@string/varenavn" android:maxLines="1"/>
 
     <EditText
             android:imeOptions="actionNext"
@@ -72,7 +72,7 @@
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintHorizontal_bias="0.44" app:layout_constraintVertical_bias="0.46"
-            android:textSize="14sp" android:hint="afsætning (stk)"/>
+            android:textSize="14sp" android:hint="@string/afs_tning_stk"/>
     <EditText
             android:imeOptions="actionDone"
             android:layout_width="110dp"
@@ -83,9 +83,9 @@
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintHorizontal_bias="0.80" app:layout_constraintVertical_bias="0.46"
-            android:textSize="14sp" android:hint="salgspris (kr)"/>
+            android:textSize="14sp" android:hint="@string/salgspris_kr"/>
     <TextView
-            android:text="Tilføj ny vare til omsætningen"
+            android:text="@string/tilf_j_ny_vare_til_oms_tningen"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/omsaetningText"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
@@ -93,7 +93,7 @@
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.46"
             android:textColor="#000000"/>
     <TextView
-            android:text="Samlet Omsætning:"
+            android:text="@string/samlet_oms_tning"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/omsaetningResultatText"
             android:textColor="#000000" android:textStyle="bold" app:layout_constraintEnd_toEndOf="parent"

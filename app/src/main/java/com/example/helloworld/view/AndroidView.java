@@ -248,19 +248,19 @@ public class AndroidView extends AppCompatActivity {
             model.setBruttofortjeneste(Long.parseLong(bruttofortjeneste.getText().toString()));
         }
 
-        if( !(bruttofortjeneste.getText().toString().equals("-")) && !(markedsfoeringsomkostninger.getText().toString().equals("")) ){
+        if( !(bruttofortjeneste.getText().toString().equals("")) && !(markedsfoeringsomkostninger.getText().toString().equals("")) ){
             markedsfoeringsbidrag.setText( Long.toString( ( Long.parseLong(bruttofortjeneste.getText().toString()) ) - ( Long.parseLong(markedsfoeringsomkostninger.getText().toString() )) ) );
         }
 
-        if( !(markedsfoeringsbidrag.getText().toString().equals("-")) && !(oevrigeKapacitetsomkostninger.getText().toString().equals("")) ){
+        if( !(markedsfoeringsbidrag.getText().toString().equals("")) && !(oevrigeKapacitetsomkostninger.getText().toString().equals("")) ){
             indtjeningsbidrag.setText( Long.toString( ( Long.parseLong(markedsfoeringsbidrag.getText().toString()) ) - ( Long.parseLong(oevrigeKapacitetsomkostninger.getText().toString() )) ) );
         }
 
-        if( !(indtjeningsbidrag.getText().toString().equals("-")) && !(afskrivninger.getText().toString().equals("")) ){
+        if( !(indtjeningsbidrag.getText().toString().equals("")) && !(afskrivninger.getText().toString().equals("")) ){
             resultatFoerRenter.setText( Long.toString( ( Long.parseLong(indtjeningsbidrag.getText().toString()) ) - ( Long.parseLong(afskrivninger.getText().toString() )) ) );
         }
 
-        if( !(resultatFoerRenter.getText().toString().equals("-")) && !(renteomkostninger.getText().toString().equals("")) ){
+        if( !(resultatFoerRenter.getText().toString().equals("")) && !(renteomkostninger.getText().toString().equals("")) ){
             resultat.setText( Long.toString( ( Long.parseLong(resultatFoerRenter.getText().toString()) ) - ( Long.parseLong(renteomkostninger.getText().toString() )) ) );
         }
 

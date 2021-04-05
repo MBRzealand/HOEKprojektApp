@@ -12,4 +12,25 @@
     <string name="resultat_f_r_renter">Resultat før renter</string>
     <string name="renteomkostninger">Renteomkostninger</string>
     <string name="afskrivninger">Afskrivninger</string>
+    <string name="kr">kr</string>
+    <string name="omkostningsnavn">omkostningsnavn</string>
+    <string name="omkostningspris">omkostningspris</string>
+    <string name="tilf_j_ny_kapacitetsomkostning">Tilføj ny Kapacitetsomkostning</string>
+    <string name="samlede_vrige_nkapacitetesomkostninger">Samlede Øvrige \nKapacitetesomkostninger:</string>
+    <string name="godkend">Godkend</string>
+    <string name="udregn_vrige_nkapacitetsomkostninger">Udregn Øvrige \nKapacitetsomkostninger</string>
+    <string name="godkend">Godkend</string>
+    <string name="udregn_oms_tning">Udregn Omsætning</string>
+    <string name="varenavn">varenavn</string>
+    <string name="afs_tning_stk">afsætning (stk)</string>
+    <string name="salgspris_kr">salgspris (kr)</string>
+    <string name="tilf_j_ny_vare_til_oms_tningen">Tilføj ny vare til omsætningen</string>
+    <string name="samlet_oms_tning">Samlet Omsætning:</string>
+    <string name="godkend">Godkend</string>
+    <string name="udregn_vareforbrug">Udregn Vareforbrug</string>
+    <string name="varenavn">varenavn</string>
+    <string name="opk_b_stk">opkøb (stk)</string>
+    <string name="k_bspris_kr">købspris (kr)</string>
+    <string name="tilf_j_ny_vare_til_vareforbruget">Tilføj ny vare til vareforbruget</string>
+    <string name="samlet_vareforbrug">Samlet Vareforbrug:</string>
 </resources>
