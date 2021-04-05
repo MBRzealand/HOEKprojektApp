@@ -40,7 +40,7 @@ Hvis alle felter i programmet er udfyldt vil programmet undervejs også have udr
 
 # TODO
 
-- ~~Tilføj "kr" som enhed til alle tal på main activity ~~
+- <s>Tilføj "kr" som enhed til alle tal på main activity </s>
 - Tilføj "Udregnelse af Afskrivninger" feature
 - Tilføj "Vis fulde resultatopgørelse" feature
 - Tilføj "exporter til pdf/xlsx" feature
