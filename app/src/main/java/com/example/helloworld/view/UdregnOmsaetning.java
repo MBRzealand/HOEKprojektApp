@@ -166,11 +166,6 @@ public class UdregnOmsaetning extends AppCompatActivity {
                         omsaetningElement.setSalgspris(Long.toString(Long.parseLong(salgsprisInput.getText().toString())));
                     }
 
-                    if( (!(afsaetningInput.getText().toString().equals("")) && !(salgsprisInput.getText().toString().equals(""))) && !(omsaetningNavnInput.getText().toString().equals("")) ){
-                        omsaetningElement.setOmsaetning( Long.toString (( Long.parseLong(afsaetningInput.getText().toString())  * ( Long.parseLong(salgsprisInput.getText().toString() )) ) ));
-
-                    }
-
                     opdaterTal();
                     salgsprisInput.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#000000")));
 

@@ -7,6 +7,24 @@
         android:layout_height="match_parent"
         tools:context=".view.UdregnAfskrivninger" android:clickable="true">
 
+    <ImageButton
+            android:layout_width="25dp"
+            android:layout_height="25dp" app:srcCompat="@drawable/add_medium_grey"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintHorizontal_bias="0.92"
+            app:layout_constraintVertical_bias="0.59" android:background="@drawable/round_button"
+            android:scaleType="fitXY" android:onClick="addElementToTable2"
+            android:id="@+id/tilfoejTilAfskrivning2"/>
+    <ImageButton
+            android:layout_width="25dp"
+            android:layout_height="25dp" app:srcCompat="@drawable/add_medium_grey"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintHorizontal_bias="0.92"
+            app:layout_constraintVertical_bias="0.46" android:background="@drawable/round_button"
+            android:scaleType="fitXY" android:onClick="addElementToTable1"
+            android:id="@+id/tilfoejTilAfskrivning1"/>
     <TextView
             android:text="Tilføj Afskrivning"
             android:layout_width="wrap_content"
@@ -26,7 +44,7 @@
     <de.codecrafters.tableview.TableView
             android:layout_width="425dp"
             android:layout_height="272dp"
-            app:tableView_columnCount="2" app:layout_constraintBottom_toBottomOf="parent"
+            app:tableView_columnCount="1" app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintHorizontal_bias="0.54"
             app:layout_constraintVertical_bias="0.112" android:id="@+id/tableView4"/>
@@ -221,7 +239,7 @@
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintHorizontal_bias="0.862" app:layout_constraintVertical_bias="0.86"
             android:textStyle="bold" android:textColor="#000000" android:textAlignment="viewEnd"
-            android:text="18000 kr"/>
+    />
     <Button
             android:text="@string/godkend"
             android:layout_width="425dp"

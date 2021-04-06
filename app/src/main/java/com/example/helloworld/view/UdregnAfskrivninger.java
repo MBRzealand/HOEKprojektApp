@@ -1,16 +1,30 @@
 package com.example.helloworld.view;
 
+import android.content.Context;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.example.helloworld.R;
+import com.example.helloworld.model.AfskrivningElement;
+import com.example.helloworld.model.Model;
 import de.codecrafters.tableview.TableView;
+import de.codecrafters.tableview.toolkit.SimpleTableDataAdapter;
 import de.codecrafters.tableview.toolkit.SimpleTableHeaderAdapter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class UdregnAfskrivninger extends AppCompatActivity {
+
+    AfskrivningElement afskrivningElement = new AfskrivningElement();
+
+    Model model;
 
     RadioButton lineaerAfskrivning;
     RadioButton saldometoden;
@@ -37,12 +51,19 @@ public class UdregnAfskrivninger extends AppCompatActivity {
 
     Button godkendAfskrivningerKnap;
     TextView AfskrivningResultatText;
+    TextView udregnAfskrivningerResultat;
 
     ImageButton plusKnap;
     TextView plusTekst;
 
     TableView<String[]> table4;
 
+    ImageButton tilfoejTilAfskrivning1;
+    ImageButton tilfoejTilAfskrivning2;
+
+
+    List<String[]> listeAfAfskrivninger;
+    List<String[]> listeAfAfskrivningerMedEnheder;
 
 
 
@@ -51,6 +72,8 @@ public class UdregnAfskrivninger extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_udregn_afskrivninger);
+
+        model = (Model) getIntent().getSerializableExtra("modelObject");
 
         lineaerAfskrivning = findViewById(R.id.lineaerAfskrivningKnap);
         saldometoden = findViewById(R.id.saldometodeKnap);
@@ -72,19 +95,211 @@ public class UdregnAfskrivninger extends AppCompatActivity {
         p8 = findViewById(R.id.p8);
         g1 = findViewById(R.id.g1);  // "g" for gange
 
+
+        listeAfAfskrivninger = new ArrayList<String[]>();
+        listeAfAfskrivningerMedEnheder = new ArrayList<String[]>();
+
+
         afskrivningsprocentInput = findViewById(R.id.afskrivningsprocentInput);
         bogfoertPrimovaerdiInput = findViewById(R.id.bogfoertPrimovaerdiInput);
 
         godkendAfskrivningerKnap = findViewById(R.id.godkendAfskrivningerKnap);
         AfskrivningResultatText = findViewById(R.id.AfskrivningResultatText);
+        udregnAfskrivningerResultat = findViewById(R.id.udregnAfskrivningerResultat);
+
+        AfskrivningResultatText.setVisibility(View.GONE);
+        udregnAfskrivningerResultat.setVisibility(View.GONE);
 
         plusKnap = findViewById(R.id.plusKnap);
         plusTekst = findViewById(R.id.plusTekst);
 
         table4 = findViewById(R.id.tableView4);
-        table4.setHeaderAdapter(new SimpleTableHeaderAdapter(this,"Afskrivningsnavn","Afskrivning"));
+        table4.setHeaderAdapter(new SimpleTableHeaderAdapter(this,"Afskrivning"));
+
+        tilfoejTilAfskrivning1 = findViewById(R.id.tilfoejTilAfskrivning1);
+        tilfoejTilAfskrivning2 = findViewById(R.id.tilfoejTilAfskrivning2);
+
+        tilfoejTilAfskrivning1.setVisibility(View.GONE);
+        tilfoejTilAfskrivning1.setEnabled(false);
+
+        tilfoejTilAfskrivning2.setVisibility(View.GONE);
+        tilfoejTilAfskrivning2.setEnabled(false);
+
 
         hideEquations();
+
+        kostprisInput.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+
+            public void onFocusChange(View view, boolean hasFocus) {
+
+                if(hasFocus) {
+
+                    opdaterTal1();
+                    kostprisInput.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#00DAC5")));
+
+                }
+
+                if(!hasFocus) {
+                    if ( kostprisInput.getText().toString().equals("")) {
+                        kostprisInput.setText(Long.toString(0));
+                        afskrivningElement.setKostpris(Long.toString(0));
+                    } else {
+                        afskrivningElement.setKostpris(kostprisInput.getText().toString());
+                    }
+
+                    opdaterTal1();
+                    kostprisInput.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#000000")));
+
+                }
+
+
+
+            }
+        });
+
+        scrapvaerdiInput.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+
+            public void onFocusChange(View view, boolean hasFocus) {
+
+                if(hasFocus) {
+
+                    opdaterTal1();
+                    scrapvaerdiInput.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#00DAC5")));
+
+                }
+
+                if(!hasFocus) {
+                    if ( scrapvaerdiInput.getText().toString().equals("")) {
+                        scrapvaerdiInput.setText(Long.toString(0));
+                        afskrivningElement.setScrapvaerdi(Long.toString(0));
+                    } else {
+                        afskrivningElement.setScrapvaerdi(Long.toString(Long.parseLong(scrapvaerdiInput.getText().toString())));
+                    }
+
+                    opdaterTal1();
+                    scrapvaerdiInput.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#000000")));
+
+                }
+
+
+            }
+        });
+
+        brugstidInput.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+
+            public void onFocusChange(View view, boolean hasFocus) {
+
+                if(hasFocus) {
+
+                    opdaterTal1();
+                    brugstidInput.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#00DAC5")));
+
+                }
+
+                if(!hasFocus) {
+                    if ( brugstidInput.getText().toString().equals("")) {
+                        brugstidInput.setText(Long.toString(0));
+                        afskrivningElement.setBrugstid(Long.toString(0));
+                    } else {
+                        afskrivningElement.setBrugstid(Long.toString(Long.parseLong(brugstidInput.getText().toString())));
+                    }
+
+                    opdaterTal1();
+                    brugstidInput.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#000000")));
+
+                }
+
+
+
+                brugstidInput.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+                    @Override
+                    public boolean onEditorAction(TextView view, int actionId, KeyEvent event) {
+                        if (actionId == EditorInfo.IME_ACTION_DONE) {
+                            brugstidInput.clearFocus();
+                            InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+                            return true;
+                        }
+                        return false;
+                    }
+                });
+
+            }
+        });
+
+
+        afskrivningsprocentInput.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+
+            public void onFocusChange(View view, boolean hasFocus) {
+
+                if(hasFocus) {
+
+                    opdaterTal2();
+                    afskrivningsprocentInput.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#00DAC5")));
+
+                }
+
+                if(!hasFocus) {
+                    if ( afskrivningsprocentInput.getText().toString().equals("")) {
+                        afskrivningsprocentInput.setText(Long.toString(0));
+                        afskrivningElement.setAfskrivningsprocent(Long.toString(0));
+                    } else {
+                        afskrivningElement.setAfskrivningsprocent(Long.toString(Long.parseLong(afskrivningsprocentInput.getText().toString())));
+                    }
+
+                    opdaterTal2();
+                    afskrivningsprocentInput.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#000000")));
+
+                }
+
+
+            }
+        });
+
+
+
+        bogfoertPrimovaerdiInput.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+
+            public void onFocusChange(View view, boolean hasFocus) {
+
+                if(hasFocus) {
+
+                    opdaterTal2();
+                    bogfoertPrimovaerdiInput.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#00DAC5")));
+
+                }
+
+                if(!hasFocus) {
+                    if ( bogfoertPrimovaerdiInput.getText().toString().equals("")) {
+                        bogfoertPrimovaerdiInput.setText(Long.toString(0));
+                        afskrivningElement.setBogfoertPrimovaerdi(Long.toString(0));
+                    } else {
+                        afskrivningElement.setBogfoertPrimovaerdi(Long.toString(Long.parseLong(bogfoertPrimovaerdiInput.getText().toString())));
+                    }
+
+
+                    opdaterTal2();
+                    bogfoertPrimovaerdiInput.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#000000")));
+
+                }
+
+
+
+                bogfoertPrimovaerdiInput.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+                    @Override
+                    public boolean onEditorAction(TextView view, int actionId, KeyEvent event) {
+                        if (actionId == EditorInfo.IME_ACTION_DONE) {
+                            bogfoertPrimovaerdiInput.clearFocus();
+                            InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+                            return true;
+                        }
+                        return false;
+                    }
+                });
+
+            }
+        });
 
 
     }
@@ -123,6 +338,9 @@ public class UdregnAfskrivninger extends AppCompatActivity {
 
     public void turnOffVisibilityEquation1(){
 
+        tilfoejTilAfskrivning1.setVisibility(View.GONE);
+        tilfoejTilAfskrivning1.setEnabled(false);
+
         lineaerAfskrivning.setTextColor(Color.parseColor("#C6C6C6"));
 
         kostprisInput.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#C6C6C6")));
@@ -148,6 +366,9 @@ public class UdregnAfskrivninger extends AppCompatActivity {
 
     public void turnOnVisibilityEquation1(){
 
+        tilfoejTilAfskrivning1.setVisibility(View.VISIBLE);
+        tilfoejTilAfskrivning1.setEnabled(true);
+
         lineaerAfskrivning.setTextColor(Color.parseColor("#000000"));
 
         kostprisInput.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#000000")));
@@ -169,6 +390,9 @@ public class UdregnAfskrivninger extends AppCompatActivity {
 
     public void turnOffVisibilityEquation2(){
 
+        tilfoejTilAfskrivning2.setVisibility(View.GONE);
+        tilfoejTilAfskrivning2.setEnabled(false);
+
         saldometoden.setTextColor(Color.parseColor("#C6C6C6"));
 
         afskrivningsprocentInput.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#C6C6C6")));
@@ -189,6 +413,9 @@ public class UdregnAfskrivninger extends AppCompatActivity {
     }
 
     public void turnOnVisibilityEquation2(){
+
+        tilfoejTilAfskrivning2.setVisibility(View.VISIBLE);
+        tilfoejTilAfskrivning2.setEnabled(true);
 
         saldometoden.setTextColor(Color.parseColor("#000000"));
 
@@ -291,6 +518,110 @@ public class UdregnAfskrivninger extends AppCompatActivity {
         d1.setVisibility(View.GONE);
         g1.setVisibility(View.GONE);
 
+        tilfoejTilAfskrivning1.setVisibility(View.GONE);
+        tilfoejTilAfskrivning1.setEnabled(false);
+
+        tilfoejTilAfskrivning2.setVisibility(View.GONE);
+        tilfoejTilAfskrivning2.setEnabled(false);
+
     }
 
+    public void opdaterTal1(){
+
+        if( (!(kostprisInput.getText().toString().equals("")) && !(scrapvaerdiInput.getText().toString().equals(""))) && !(brugstidInput.getText().toString().equals("")) ){
+            afskrivningElement.setAfskrivning( Long.toString( (( Long.parseLong(kostprisInput.getText().toString()) - ( Long.parseLong(scrapvaerdiInput.getText().toString() )) )) / ( Long.parseLong(brugstidInput.getText().toString() )) )  );
+        }
+
+    }
+
+    public void opdaterTal2(){
+
+        if( (!(afskrivningsprocentInput.getText().toString().equals("")) ) && !(bogfoertPrimovaerdiInput.getText().toString().equals("")) ){
+            afskrivningElement.setAfskrivning( Long.toString( (  ( Long.parseLong(afskrivningsprocentInput.getText().toString())  ) * ( Long.parseLong(bogfoertPrimovaerdiInput.getText().toString()) ) ) ) );
+        }
+
+
+    }
+
+
+    public void addElementToTable1(View view) {
+
+        brugstidInput.clearFocus();
+
+        if( (!kostprisInput.getText().toString().equals("") && !scrapvaerdiInput.getText().toString().equals("")) && !brugstidInput.getText().toString().equals("") ) {
+
+            String[] stringOmsaetningsElement = new String[]{
+//                    afskrivningElement.getKostpris(),
+//                    afskrivningElement.getScrapvaerdi(),
+//                    afskrivningElement.getBrugstid(),
+                    afskrivningElement.getAfskrivning()
+            };
+
+            listeAfAfskrivninger.add(stringOmsaetningsElement);
+
+
+            String[] stringAfskrivningsElementMedEnheder = new String[]{
+//                    afskrivningElement.getKostpris(),
+//                    afskrivningElement.getScrapvaerdi(),
+//                    afskrivningElement.getBrugstid(),
+                    afskrivningElement.getAfskrivning() + " kr"
+
+            };
+
+            listeAfAfskrivningerMedEnheder.add(stringAfskrivningsElementMedEnheder);
+
+
+            int totaleAfskrivninger = 0;
+
+            for (int i = 0; i < listeAfAfskrivninger.size(); i++) {
+                totaleAfskrivninger += Long.parseLong(listeAfAfskrivninger.get(i)[0]);
+
+            }
+
+            if (listeAfAfskrivninger.size() > 0) {
+                AfskrivningResultatText.setVisibility(View.VISIBLE);
+                udregnAfskrivningerResultat.setVisibility(View.VISIBLE);
+            }
+
+            table4.setDataAdapter(new SimpleTableDataAdapter(this, listeAfAfskrivningerMedEnheder));
+            udregnAfskrivningerResultat.setText(Long.toString(totaleAfskrivninger) + " kr");
+            model.setOmsaetning(totaleAfskrivninger);
+
+            kostprisInput.setText("");
+            scrapvaerdiInput.setText("");
+            brugstidInput.setText("");
+
+            kostprisInput.setVisibility(View.GONE);
+            scrapvaerdiInput.setVisibility(View.GONE);
+            brugstidInput.setVisibility(View.GONE);
+            godkendAfskrivningerKnap.setVisibility(View.GONE);
+            kostprisInput.setEnabled(false);
+            scrapvaerdiInput.setEnabled(false);
+            brugstidInput.setEnabled(false);
+            godkendAfskrivningerKnap.setEnabled(false);
+
+            plusKnap.setVisibility(View.VISIBLE);
+            plusTekst.setVisibility(View.VISIBLE);
+            plusKnap.setEnabled(true);
+            plusTekst.setEnabled(true);
+
+            godkendAfskrivningerKnap.setVisibility(View.VISIBLE);
+            godkendAfskrivningerKnap.setEnabled(true);
+
+            hideEquations();
+
+        } else {
+
+            Toast.makeText(getApplicationContext(), "Udfyld venligst alle felter", Toast.LENGTH_SHORT).show();
+
+        }
+
+
+    }
+
+    public void addElementToTable2(View view) {
+
+        bogfoertPrimovaerdiInput.clearFocus();
+
+    }
 }
