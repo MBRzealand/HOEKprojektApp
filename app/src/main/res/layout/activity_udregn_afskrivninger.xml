@@ -7,6 +7,37 @@
         android:layout_height="match_parent"
         tools:context=".view.UdregnAfskrivninger" android:clickable="true">
 
+    <TextView
+            android:text="Tilføj Afskrivning"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.17" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.46"
+            android:textColor="#000000" android:id="@+id/plusTekst"/>
+    <ImageButton
+            android:layout_width="25dp"
+            android:layout_height="25dp" app:srcCompat="@drawable/add_medium_grey"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintHorizontal_bias="0.07"
+            app:layout_constraintVertical_bias="0.46" android:background="@drawable/round_button"
+            android:scaleType="fitXY" android:onClick="plusButtonPressed" android:id="@+id/plusKnap"/>
+    <de.codecrafters.tableview.TableView
+            android:layout_width="425dp"
+            android:layout_height="272dp"
+            app:tableView_columnCount="2" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintHorizontal_bias="0.54"
+            app:layout_constraintVertical_bias="0.112" android:id="@+id/tableView4"/>
+    <TextView
+            android:text="Årlig Afskrivning"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/AfskrivningResultatText"
+            android:textColor="#000000" android:textStyle="bold" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintHorizontal_bias="0.092" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0.86"/>
     <EditText
             android:imeOptions="actionNext"
             android:layout_width="110dp"
@@ -16,31 +47,18 @@
             android:id="@+id/kostprisInput"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.192" app:layout_constraintVertical_bias="0.152"
+            app:layout_constraintHorizontal_bias="0.122" app:layout_constraintVertical_bias="0.514"
             android:textSize="18sp" android:hint="Kostpris" android:maxLines="1" android:backgroundTint="#000000"
             android:textAlignment="center"/>
-    <EditText
-            android:imeOptions="actionNext"
-            android:layout_width="110dp"
-            android:layout_height="wrap_content"
-            android:inputType="number"
-            android:ems="10"
-            android:id="@+id/scrapvaerdiInput"
-            app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.528" app:layout_constraintVertical_bias="0.152"
-            android:textSize="18sp" android:hint="Scrapværdi" android:backgroundTint="#000000"
-            android:textAlignment="center"/>
-
     <TextView
-            android:text=")"
+            android:text="/"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/p2"
+            android:layout_height="wrap_content" android:id="@+id/d1"
             android:textColor="#000000"
-            android:textSize="30sp" app:layout_constraintStart_toStartOf="parent"
+            android:textSize="36sp" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.672"
-            app:layout_constraintVertical_bias="0.15"/>
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.62"
+            app:layout_constraintVertical_bias="0.512"/>
     <TextView
             android:text="-"
             android:layout_width="wrap_content"
@@ -48,17 +66,26 @@
             android:textColor="#000000"
             android:textSize="30sp" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.389"
-            app:layout_constraintVertical_bias="0.15"/>
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.33"
+            app:layout_constraintVertical_bias="0.511"/>
     <TextView
-            android:text="("
+            android:text=")"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/p3"
+            android:layout_height="wrap_content" android:id="@+id/p4"
             android:textColor="#000000"
             android:textSize="30sp" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.72"
-            app:layout_constraintVertical_bias="0.15"/>
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.92"
+            app:layout_constraintVertical_bias="0.511"/>
+    <TextView
+            android:text="("
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/p1"
+            android:textColor="#000000"
+            android:textSize="30sp" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.072"
+            app:layout_constraintVertical_bias="0.511"/>
     <EditText
             android:imeOptions="actionDone"
             android:layout_width="110dp"
@@ -68,9 +95,55 @@
             android:id="@+id/brugstidInput"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.94" app:layout_constraintVertical_bias="0.152"
+            app:layout_constraintHorizontal_bias="0.86" app:layout_constraintVertical_bias="0.514"
             android:textSize="18sp" android:hint="Brugstid" android:backgroundTint="#000000"
             android:textAlignment="center"/>
+    <TextView
+            android:text="("
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/p3"
+            android:textColor="#000000"
+            android:textSize="30sp" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.66"
+            app:layout_constraintVertical_bias="0.511"/>
+    <EditText
+            android:imeOptions="actionNext"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:ems="10"
+            android:id="@+id/scrapvaerdiInput"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.45" app:layout_constraintVertical_bias="0.514"
+            android:textSize="18sp" android:hint="Scrapværdi" android:backgroundTint="#000000"
+            android:textAlignment="center"/>
+    <TextView
+            android:text=")"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/p2"
+            android:textColor="#000000"
+            android:textSize="30sp" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.585"
+            app:layout_constraintVertical_bias="0.511"/>
+    <RadioButton
+            android:text="Lineær Afskrivning"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/lineaerAfskrivningKnap"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.092" app:layout_constraintVertical_bias="0.459"
+            android:clickable="true" android:onClick="linearKnapKlik" android:textStyle="bold"/>
+    <RadioButton
+            android:text="Saldometoden"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/saldometodeKnap"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.082" app:layout_constraintVertical_bias="0.589"
+            android:onClick="saldoKnapKlik" android:textStyle="bold"/>
     <EditText
             android:imeOptions="actionNext"
             android:layout_width="170dp"
@@ -80,27 +153,9 @@
             android:id="@+id/afskrivningsprocentInput"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.225" app:layout_constraintVertical_bias="0.312"
+            app:layout_constraintHorizontal_bias="0.15" app:layout_constraintVertical_bias="0.648"
             android:textSize="18sp" android:hint="Afskrivningsprocent" android:backgroundTint="#000000"
             android:textAlignment="center"/>
-    <TextView
-            android:text="("
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/p5"
-            android:textColor="#000000"
-            android:textSize="30sp" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.127"
-            app:layout_constraintVertical_bias="0.31"/>
-    <TextView
-            android:text=")"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/p6"
-            android:textColor="#000000"
-            android:textSize="30sp" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.51"
-            app:layout_constraintVertical_bias="0.31"/>
     <TextView
             android:text="("
             android:layout_width="wrap_content"
@@ -108,8 +163,8 @@
             android:textColor="#000000"
             android:textSize="30sp" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.59"
-            app:layout_constraintVertical_bias="0.31"/>
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.536"
+            app:layout_constraintVertical_bias="0.644"/>
     <TextView
             android:text="x"
             android:layout_width="wrap_content"
@@ -118,8 +173,35 @@
             android:textSize="24sp" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintVertical_bias="0.311" android:textStyle="bold"
-            app:layout_constraintHorizontal_bias="0.55"/>
+            app:layout_constraintVertical_bias="0.642" android:textStyle="bold"
+            app:layout_constraintHorizontal_bias="0.5"/>
+    <TextView
+            android:text="("
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/p5"
+            android:textColor="#000000"
+            android:textSize="30sp" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.072"
+            app:layout_constraintVertical_bias="0.644"/>
+    <TextView
+            android:text=")"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/p8"
+            android:textColor="#000000"
+            android:textSize="30sp" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.92"
+            app:layout_constraintVertical_bias="0.644"/>
+    <TextView
+            android:text=")"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/p6"
+            android:textColor="#000000"
+            android:textSize="30sp" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintVertical_bias="0.644" app:layout_constraintHorizontal_bias="0.46"/>
     <EditText
             android:imeOptions="actionDone"
             android:layout_width="170dp"
@@ -129,45 +211,17 @@
             android:id="@+id/bogfoertPrimovaerdiInput"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.93" app:layout_constraintVertical_bias="0.312"
+            app:layout_constraintHorizontal_bias="0.842" app:layout_constraintVertical_bias="0.648"
             android:textSize="18sp" android:hint="Bogført Primoværdi" android:backgroundTint="#000000"
             android:textAlignment="center"/>
     <TextView
-            android:text=")"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/p8"
-            android:textColor="#000000"
-            android:textSize="30sp" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.987"
-            app:layout_constraintVertical_bias="0.31"/>
-    <TextView
-            android:text="/"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/d1"
-            android:textColor="#000000"
-            android:textSize="42sp" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.7"
-            app:layout_constraintVertical_bias="0.145"/>
-    <TextView
-            android:text="("
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/p1"
-            android:textColor="#000000"
-            android:textSize="30sp" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.124"
-            app:layout_constraintVertical_bias="0.15"/>
-    <TextView
-            android:text=")"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/p4"
-            android:textColor="#000000"
-            android:textSize="30sp" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.987"
-            app:layout_constraintVertical_bias="0.15"/>
+            android:layout_width="200dp"
+            android:layout_height="wrap_content" android:id="@+id/udregnAfskrivningerResultat"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.862" app:layout_constraintVertical_bias="0.86"
+            android:textStyle="bold" android:textColor="#000000" android:textAlignment="viewEnd"
+            android:text="18000 kr"/>
     <Button
             android:text="@string/godkend"
             android:layout_width="425dp"
@@ -176,21 +230,6 @@
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintHorizontal_bias="0.498" app:layout_constraintVertical_bias="0.95"
             android:onClick="godkendAfskrivninger" android:id="@+id/godkendAfskrivningerKnap"/>
-    <TextView
-            android:layout_width="200dp"
-            android:layout_height="wrap_content" android:id="@+id/udregnAfskrivningerResultat"
-            app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.872" app:layout_constraintVertical_bias="0.519"
-            android:textStyle="bold" android:textColor="#000000" android:textAlignment="viewEnd"/>
-    <TextView
-            android:text="Årlig Afskrivning"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/AfskrivningResultatText"
-            android:textColor="#000000" android:textStyle="bold" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintHorizontal_bias="0.1" app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintVertical_bias="0.52"/>
     <ImageView
             android:layout_width="60dp"
             android:layout_height="25dp" app:srcCompat="@drawable/backarrow" android:id="@+id/imageView5"
@@ -208,20 +247,4 @@
             app:layout_constraintVertical_bias="0.022"
             android:textStyle="bold" android:textSize="18sp"
             android:textColor="#000000"/>
-    <RadioButton
-            android:text="Lineær Afskrivning"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/lineaerAfskrivningKnap"
-            app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.063" app:layout_constraintVertical_bias="0.1"
-            android:clickable="true" android:onClick="linearKnapKlik" android:textStyle="bold"/>
-    <RadioButton
-            android:text="Saldometoden"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/saldometodeKnap"
-            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.055" app:layout_constraintVertical_bias="0.253"
-            android:onClick="saldoKnapKlik" android:textStyle="bold"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

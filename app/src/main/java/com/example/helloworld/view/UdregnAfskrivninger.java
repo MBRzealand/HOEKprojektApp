@@ -3,13 +3,12 @@ package com.example.helloworld.view;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.RadioButton;
-import android.widget.TextView;
+import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.example.helloworld.R;
+import de.codecrafters.tableview.TableView;
+import de.codecrafters.tableview.toolkit.SimpleTableHeaderAdapter;
 
 public class UdregnAfskrivninger extends AppCompatActivity {
 
@@ -39,6 +38,12 @@ public class UdregnAfskrivninger extends AppCompatActivity {
     Button godkendAfskrivningerKnap;
     TextView AfskrivningResultatText;
 
+    ImageButton plusKnap;
+    TextView plusTekst;
+
+    TableView<String[]> table4;
+
+
 
 
 
@@ -50,12 +55,12 @@ public class UdregnAfskrivninger extends AppCompatActivity {
         lineaerAfskrivning = findViewById(R.id.lineaerAfskrivningKnap);
         saldometoden = findViewById(R.id.saldometodeKnap);
 
-        p1 = findViewById(R.id.p1);
+        p1 = findViewById(R.id.p1);  // "p" for parentes
         p2 = findViewById(R.id.p2);
         p3 = findViewById(R.id.p3);
         p4 = findViewById(R.id.p4);
-        m1 = findViewById(R.id.m1);
-        d1 = findViewById(R.id.d1);
+        m1 = findViewById(R.id.m1);  // "m" for minus
+        d1 = findViewById(R.id.d1);  // "d" for division
 
         kostprisInput = findViewById(R.id.kostprisInput);
         scrapvaerdiInput = findViewById(R.id.scrapvaerdiInput);
@@ -65,7 +70,7 @@ public class UdregnAfskrivninger extends AppCompatActivity {
         p6 = findViewById(R.id.p6);
         p7 = findViewById(R.id.p7);
         p8 = findViewById(R.id.p8);
-        g1 = findViewById(R.id.g1);
+        g1 = findViewById(R.id.g1);  // "g" for gange
 
         afskrivningsprocentInput = findViewById(R.id.afskrivningsprocentInput);
         bogfoertPrimovaerdiInput = findViewById(R.id.bogfoertPrimovaerdiInput);
@@ -73,14 +78,13 @@ public class UdregnAfskrivninger extends AppCompatActivity {
         godkendAfskrivningerKnap = findViewById(R.id.godkendAfskrivningerKnap);
         AfskrivningResultatText = findViewById(R.id.AfskrivningResultatText);
 
-        godkendAfskrivningerKnap.setVisibility(View.GONE);
-        AfskrivningResultatText.setVisibility(View.GONE);
+        plusKnap = findViewById(R.id.plusKnap);
+        plusTekst = findViewById(R.id.plusTekst);
 
-        godkendAfskrivningerKnap.setEnabled(false);
-        AfskrivningResultatText.setEnabled(false);
+        table4 = findViewById(R.id.tableView4);
+        table4.setHeaderAdapter(new SimpleTableHeaderAdapter(this,"Afskrivningsnavn","Afskrivning"));
 
-        lineaerAfskrivning.setChecked(true);
-        turnOffVisibilityEquation2();
+        hideEquations();
 
 
     }
@@ -92,6 +96,12 @@ public class UdregnAfskrivninger extends AppCompatActivity {
     }
 
     public void godkendAfskrivninger(View view) {
+
+        hideEquations();
+        plusKnap.setEnabled(true);
+        plusKnap.setVisibility(View.VISIBLE);
+        plusTekst.setVisibility(View.VISIBLE);
+
     }
 
     public void linearKnapKlik(View view) {
@@ -198,5 +208,89 @@ public class UdregnAfskrivninger extends AppCompatActivity {
     }
 
 
+    public void plusButtonPressed(View view) {
+
+        plusKnap.setEnabled(false);
+        plusKnap.setVisibility(View.GONE);
+        plusTekst.setVisibility(View.GONE);
+
+        lineaerAfskrivning.setChecked(true);
+        saldometoden.setChecked(false);
+        turnOnVisibilityEquation1();
+        turnOffVisibilityEquation2();
+
+        showEquations();
+
+
+
+    }
+
+    public void showEquations(){
+
+        lineaerAfskrivning.setEnabled(true);
+        lineaerAfskrivning.setVisibility(View.VISIBLE);
+
+        saldometoden.setEnabled(true);
+        saldometoden.setVisibility(View.VISIBLE);
+
+        kostprisInput.setEnabled(true);
+        scrapvaerdiInput.setEnabled(true);
+        brugstidInput.setEnabled(true);
+        kostprisInput.setVisibility(View.VISIBLE);
+        scrapvaerdiInput.setVisibility(View.VISIBLE);
+        brugstidInput.setVisibility(View.VISIBLE);
+
+        afskrivningsprocentInput.setEnabled(true);
+        bogfoertPrimovaerdiInput.setEnabled(true);
+        afskrivningsprocentInput.setVisibility(View.VISIBLE);
+        bogfoertPrimovaerdiInput.setVisibility(View.VISIBLE);
+
+        p1.setVisibility(View.VISIBLE);
+        p2.setVisibility(View.VISIBLE);
+        p3.setVisibility(View.VISIBLE);
+        p4.setVisibility(View.VISIBLE);
+        p5.setVisibility(View.VISIBLE);
+        p6.setVisibility(View.VISIBLE);
+        p7.setVisibility(View.VISIBLE);
+        p8.setVisibility(View.VISIBLE);
+        m1.setVisibility(View.VISIBLE);
+        d1.setVisibility(View.VISIBLE);
+        g1.setVisibility(View.VISIBLE);
+
+    }
+
+    public void hideEquations(){
+
+        lineaerAfskrivning.setEnabled(false);
+        lineaerAfskrivning.setVisibility(View.GONE);
+
+        saldometoden.setEnabled(false);
+        saldometoden.setVisibility(View.GONE);
+
+        kostprisInput.setEnabled(false);
+        scrapvaerdiInput.setEnabled(false);
+        brugstidInput.setEnabled(false);
+        kostprisInput.setVisibility(View.GONE);
+        scrapvaerdiInput.setVisibility(View.GONE);
+        brugstidInput.setVisibility(View.GONE);
+
+        afskrivningsprocentInput.setEnabled(false);
+        bogfoertPrimovaerdiInput.setEnabled(false);
+        afskrivningsprocentInput.setVisibility(View.GONE);
+        bogfoertPrimovaerdiInput.setVisibility(View.GONE);
+
+        p1.setVisibility(View.GONE);
+        p2.setVisibility(View.GONE);
+        p3.setVisibility(View.GONE);
+        p4.setVisibility(View.GONE);
+        p5.setVisibility(View.GONE);
+        p6.setVisibility(View.GONE);
+        p7.setVisibility(View.GONE);
+        p8.setVisibility(View.GONE);
+        m1.setVisibility(View.GONE);
+        d1.setVisibility(View.GONE);
+        g1.setVisibility(View.GONE);
+
+    }
 
 }
