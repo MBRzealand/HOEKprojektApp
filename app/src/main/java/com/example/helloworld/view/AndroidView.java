@@ -370,6 +370,20 @@ public class AndroidView extends AppCompatActivity {
 
                 }
                 break;
+
+            case 911:
+                if (resultCode == Activity.RESULT_OK){
+
+                    Model returnmodel = (Model) data.getSerializableExtra("modelObject");
+
+                    model = returnmodel;
+
+                    afskrivninger.setText(Long.toString(returnmodel.getAfskrivninger()));
+
+                    opdaterTal();
+
+                }
+                break;
         }
     }
 

@@ -1,6 +1,8 @@
 package com.example.helloworld.view;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.view.KeyEvent;
@@ -96,6 +98,7 @@ public class UdregnAfskrivninger extends AppCompatActivity {
         g1 = findViewById(R.id.g1);  // "g" for gange
 
 
+
         listeAfAfskrivninger = new ArrayList<String[]>();
         listeAfAfskrivningerMedEnheder = new ArrayList<String[]>();
 
@@ -109,6 +112,8 @@ public class UdregnAfskrivninger extends AppCompatActivity {
 
         AfskrivningResultatText.setVisibility(View.GONE);
         udregnAfskrivningerResultat.setVisibility(View.GONE);
+
+        godkendAfskrivningerKnap.setVisibility(View.GONE);
 
         plusKnap = findViewById(R.id.plusKnap);
         plusTekst = findViewById(R.id.plusTekst);
@@ -312,10 +317,19 @@ public class UdregnAfskrivninger extends AppCompatActivity {
 
     public void godkendAfskrivninger(View view) {
 
-        hideEquations();
-        plusKnap.setEnabled(true);
-        plusKnap.setVisibility(View.VISIBLE);
-        plusTekst.setVisibility(View.VISIBLE);
+
+        if(listeAfAfskrivninger.size() >0 ){
+
+            Intent intent = new Intent(this, AndroidView.class);
+
+            intent.putExtra("modelObject", model);
+
+            setResult(Activity.RESULT_OK,intent);
+
+        }
+
+        finish();
+
 
     }
 
@@ -460,15 +474,15 @@ public class UdregnAfskrivninger extends AppCompatActivity {
         saldometoden.setEnabled(true);
         saldometoden.setVisibility(View.VISIBLE);
 
-        kostprisInput.setEnabled(true);
-        scrapvaerdiInput.setEnabled(true);
-        brugstidInput.setEnabled(true);
+//        kostprisInput.setEnabled(true);
+//        scrapvaerdiInput.setEnabled(true);
+//        brugstidInput.setEnabled(true);
         kostprisInput.setVisibility(View.VISIBLE);
         scrapvaerdiInput.setVisibility(View.VISIBLE);
         brugstidInput.setVisibility(View.VISIBLE);
 
-        afskrivningsprocentInput.setEnabled(true);
-        bogfoertPrimovaerdiInput.setEnabled(true);
+//        afskrivningsprocentInput.setEnabled(true);
+//        bogfoertPrimovaerdiInput.setEnabled(true);
         afskrivningsprocentInput.setVisibility(View.VISIBLE);
         bogfoertPrimovaerdiInput.setVisibility(View.VISIBLE);
 
@@ -550,14 +564,14 @@ public class UdregnAfskrivninger extends AppCompatActivity {
 
         if( (!kostprisInput.getText().toString().equals("") && !scrapvaerdiInput.getText().toString().equals("")) && !brugstidInput.getText().toString().equals("") ) {
 
-            String[] stringOmsaetningsElement = new String[]{
+            String[] stringAfskrivningsElement = new String[]{
 //                    afskrivningElement.getKostpris(),
 //                    afskrivningElement.getScrapvaerdi(),
 //                    afskrivningElement.getBrugstid(),
                     afskrivningElement.getAfskrivning()
             };
 
-            listeAfAfskrivninger.add(stringOmsaetningsElement);
+            listeAfAfskrivninger.add(stringAfskrivningsElement);
 
 
             String[] stringAfskrivningsElementMedEnheder = new String[]{
@@ -585,20 +599,19 @@ public class UdregnAfskrivninger extends AppCompatActivity {
 
             table4.setDataAdapter(new SimpleTableDataAdapter(this, listeAfAfskrivningerMedEnheder));
             udregnAfskrivningerResultat.setText(Long.toString(totaleAfskrivninger) + " kr");
-            model.setOmsaetning(totaleAfskrivninger);
+            model.setAfskrivninger(totaleAfskrivninger);
 
             kostprisInput.setText("");
             scrapvaerdiInput.setText("");
             brugstidInput.setText("");
 
-            kostprisInput.setVisibility(View.GONE);
-            scrapvaerdiInput.setVisibility(View.GONE);
-            brugstidInput.setVisibility(View.GONE);
-            godkendAfskrivningerKnap.setVisibility(View.GONE);
-            kostprisInput.setEnabled(false);
-            scrapvaerdiInput.setEnabled(false);
-            brugstidInput.setEnabled(false);
-            godkendAfskrivningerKnap.setEnabled(false);
+//            kostprisInput.setVisibility(View.GONE);
+//            scrapvaerdiInput.setVisibility(View.GONE);
+//            brugstidInput.setVisibility(View.GONE);
+//            kostprisInput.setEnabled(false);
+//            scrapvaerdiInput.setEnabled(false);
+//            brugstidInput.setEnabled(false);
+
 
             plusKnap.setVisibility(View.VISIBLE);
             plusTekst.setVisibility(View.VISIBLE);
@@ -608,7 +621,11 @@ public class UdregnAfskrivninger extends AppCompatActivity {
             godkendAfskrivningerKnap.setVisibility(View.VISIBLE);
             godkendAfskrivningerKnap.setEnabled(true);
 
+            turnOnVisibilityEquation1();
+            turnOffVisibilityEquation2();
+
             hideEquations();
+
 
         } else {
 
@@ -622,6 +639,75 @@ public class UdregnAfskrivninger extends AppCompatActivity {
     public void addElementToTable2(View view) {
 
         bogfoertPrimovaerdiInput.clearFocus();
+
+        if( (!afskrivningsprocentInput.getText().toString().equals("") && !bogfoertPrimovaerdiInput.getText().toString().equals("")) ) {
+
+            String[] stringAfskrivningsElement = new String[]{
+//                    afskrivningElement.getKostpris(),
+//                    afskrivningElement.getScrapvaerdi(),
+//                    afskrivningElement.getBrugstid(),
+                    afskrivningElement.getAfskrivning()
+            };
+
+            listeAfAfskrivninger.add(stringAfskrivningsElement);
+
+
+            String[] stringAfskrivningsElementMedEnheder = new String[]{
+//                    afskrivningElement.getKostpris(),
+//                    afskrivningElement.getScrapvaerdi(),
+//                    afskrivningElement.getBrugstid(),
+                    afskrivningElement.getAfskrivning() + " kr"
+
+            };
+
+            listeAfAfskrivningerMedEnheder.add(stringAfskrivningsElementMedEnheder);
+
+
+            int totaleAfskrivninger = 0;
+
+            for (int i = 0; i < listeAfAfskrivninger.size(); i++) {
+                totaleAfskrivninger += Long.parseLong(listeAfAfskrivninger.get(i)[0]);
+
+            }
+
+            if (listeAfAfskrivninger.size() > 0) {
+                AfskrivningResultatText.setVisibility(View.VISIBLE);
+                udregnAfskrivningerResultat.setVisibility(View.VISIBLE);
+            }
+
+            table4.setDataAdapter(new SimpleTableDataAdapter(this, listeAfAfskrivningerMedEnheder));
+            udregnAfskrivningerResultat.setText(Long.toString(totaleAfskrivninger) + " kr");
+            model.setAfskrivninger(totaleAfskrivninger);
+
+            afskrivningsprocentInput.setText("");
+            bogfoertPrimovaerdiInput.setText("");
+
+
+//            afskrivningsprocentInput.setVisibility(View.GONE);
+//            bogfoertPrimovaerdiInput.setVisibility(View.GONE);
+//
+//            afskrivningsprocentInput.setEnabled(false);
+//            bogfoertPrimovaerdiInput.setEnabled(false);
+
+
+            plusKnap.setVisibility(View.VISIBLE);
+            plusTekst.setVisibility(View.VISIBLE);
+            plusKnap.setEnabled(true);
+            plusTekst.setEnabled(true);
+
+            godkendAfskrivningerKnap.setVisibility(View.VISIBLE);
+            godkendAfskrivningerKnap.setEnabled(true);
+
+            turnOnVisibilityEquation1();
+            turnOffVisibilityEquation2();
+
+            hideEquations();
+
+        } else {
+
+            Toast.makeText(getApplicationContext(), "Udfyld venligst alle felter", Toast.LENGTH_SHORT).show();
+
+        }
 
     }
 }
